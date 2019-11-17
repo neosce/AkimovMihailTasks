@@ -103,7 +103,7 @@ namespace AkimovMihailTasks.Tasks
                 {
                     for (int j = 0; j < items[i].Length; j++)
                     {
-                    tempArray[cout++] = items[i][j]; 
+                        tempArray[cout++] = items[i][j]; 
                     }
                 }
             
