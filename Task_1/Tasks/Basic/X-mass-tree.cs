@@ -7,12 +7,12 @@ namespace Task_1.Tasks.Basic
 
         private void x_mass_treeInput(int n)
         {
-            for (int i = 1; i <= n; i++)
+            for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < i; j++)
                 {
-                    string branch = new String('*', j);
-                    Console.WriteLine(branch.PadLeft(n + 3) + "*" + branch);
+                    string branch = new string('*', j);
+                    Console.WriteLine(branch.PadLeft(n + 5) + "*" + branch);
                 }
             }
         }
