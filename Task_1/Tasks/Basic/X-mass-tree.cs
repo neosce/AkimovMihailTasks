@@ -12,7 +12,7 @@ namespace Task_1.Tasks.Basic
                 for (int j = 0; j < i; j++)
                 {
                     string branch = new string('*', j);
-                    Console.WriteLine(branch.PadLeft(n + 5) + "*" + branch);
+                    Console.WriteLine(branch.PadLeft(n) + "*" + branch);
                 }
             }
         }

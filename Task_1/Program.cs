@@ -46,6 +46,7 @@ namespace Task_1
                                             X_mass_tree.x_mass_tree();
                                             break;
                                         case 5:
+                                            Sum_of_numbers.sum_Of_Numbers();
                                             break;
                                         case 6:
                                             break;
