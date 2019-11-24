@@ -53,6 +53,7 @@
     <Compile Include="Tasks\Basic\X-mass-tree.cs" />
     <Compile Include="Tasks\Language\Array proccesing.cs" />
     <Compile Include="Tasks\Language\No positive.cs" />
+    <Compile Include="Tasks\Language\Non negative sum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

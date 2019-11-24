@@ -78,7 +78,6 @@ namespace Task_1.Tasks.Language
             Console.Write("}\n");
             Console.WriteLine($"Min: {items[0]}");
             Console.WriteLine($"Max: {max}");
-
         }
 
         public static void array_proccesing()

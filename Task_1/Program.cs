@@ -80,6 +80,7 @@ namespace Task_1
                                             No_positive.no_positive();
                                             break;
                                         case 9:
+                                            Non_negative_sum.non_negative_sum();
                                             break;
                                         case 10:
                                             break;
