@@ -56,6 +56,7 @@
     <Compile Include="Tasks\Language\No positive.cs" />
     <Compile Include="Tasks\Language\Non negative sum.cs" />
     <Compile Include="Tasks\String\Average string length.cs" />
+    <Compile Include="Tasks\String\Char doubler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

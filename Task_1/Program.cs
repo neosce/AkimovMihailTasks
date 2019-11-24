@@ -112,6 +112,7 @@ namespace Task_1
                                             Average_string_length.average_string_length();
                                             break;
                                         case 12:
+                                            Char_doubler.char_doubler();
                                             break;
                                         default:
                                             n3 = 0;
