@@ -2,6 +2,7 @@
 using Task_1.Tasks;
 using Task_1.Tasks.Basic;
 using Task_1.Tasks.Language;
+using Task_1.Tasks.String;
 
 namespace Task_1
 {
@@ -108,7 +109,7 @@ namespace Task_1
                                     switch (n3)
                                     {
                                         case 11:
-                                            Console.WriteLine("TEST N3 OK 1");
+                                            Average_string_length.average_string_length();
                                             break;
                                         case 12:
                                             break;

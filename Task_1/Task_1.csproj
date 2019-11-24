@@ -55,12 +55,11 @@
     <Compile Include="Tasks\Language\Array proccesing.cs" />
     <Compile Include="Tasks\Language\No positive.cs" />
     <Compile Include="Tasks\Language\Non negative sum.cs" />
+    <Compile Include="Tasks\String\Average string length.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tasks\String\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
