@@ -11,7 +11,13 @@ namespace Task_1.Tasks.Language
 
         private static void ArrayMain()
         {
-            int[] array = new int[15];
+            Random rndArray = new Random();
+
+            int elemets = rndArray.Next(10, 25);
+
+            Console.WriteLine($"Array size: {elemets}");
+
+            int[] array = new int[elemets];
 
             Array_proccesing array_Proccesing = new Array_proccesing();
 
@@ -32,10 +38,9 @@ namespace Task_1.Tasks.Language
             Console.Write("{ ");
             for (int i = 0; i < items.Length; i++)
             {
-                    items[i] = rnd.Next(0, 100);
-                    Console.Write(items[i]);
-                    Console.Write(",");
-                
+                items[i] = rnd.Next(0, 100);
+                Console.Write(items[i]);
+                Console.Write(",");
             }
             Console.Write("}");
         }
