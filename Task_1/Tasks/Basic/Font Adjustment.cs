@@ -71,6 +71,8 @@ namespace Task_1.Tasks.Basic
                 Console.WriteLine(fontStyle);
             } 
             while (n != 0);
+
+            Console.WriteLine();
         }
 
         public static void font_adjustment()

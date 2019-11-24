@@ -136,7 +136,6 @@ namespace AkimovMihailTasks.Tasks
             Console.Write("}");
         }
 
-
         public static void ArrayTask()
         {
             int N;

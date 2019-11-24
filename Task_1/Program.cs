@@ -1,6 +1,7 @@
 ﻿using System;
 using Task_1.Tasks;
 using Task_1.Tasks.Basic;
+using Task_1.Tasks.Language;
 
 namespace Task_1
 {
@@ -73,9 +74,10 @@ namespace Task_1
                                     switch (n2)
                                     {
                                         case 7:
-                                            Console.WriteLine("TEST N2 OK 1");
+                                            Array_proccesing.array_proccesing();
                                             break;
                                         case 8:
+                                            No_positive.no_positive();
                                             break;
                                         case 9:
                                             break;

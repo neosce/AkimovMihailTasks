@@ -51,12 +51,13 @@
     <Compile Include="Tasks\Basic\Sum of numbers.cs" />
     <Compile Include="Tasks\Basic\Triangle.cs" />
     <Compile Include="Tasks\Basic\X-mass-tree.cs" />
+    <Compile Include="Tasks\Language\Array proccesing.cs" />
+    <Compile Include="Tasks\Language\No positive.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tasks\Language\" />
     <Folder Include="Tasks\String\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
