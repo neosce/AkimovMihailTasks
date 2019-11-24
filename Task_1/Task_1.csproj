@@ -51,6 +51,7 @@
     <Compile Include="Tasks\Basic\Sum of numbers.cs" />
     <Compile Include="Tasks\Basic\Triangle.cs" />
     <Compile Include="Tasks\Basic\X-mass-tree.cs" />
+    <Compile Include="Tasks\Language\2D Array.cs" />
     <Compile Include="Tasks\Language\Array proccesing.cs" />
     <Compile Include="Tasks\Language\No positive.cs" />
     <Compile Include="Tasks\Language\Non negative sum.cs" />

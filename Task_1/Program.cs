@@ -83,6 +83,7 @@ namespace Task_1
                                             Non_negative_sum.non_negative_sum();
                                             break;
                                         case 10:
+                                            _2D_Array._2dArray();
                                             break;
                                         default:
                                             n2 = 0;
