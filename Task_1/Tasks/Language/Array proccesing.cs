@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task_1.Tasks.Language
 {
@@ -11,32 +7,32 @@ namespace Task_1.Tasks.Language
 
         private static void ArrayMain()
         {
-            Random rndArray = new Random();
-
-            int elemets = rndArray.Next(10, 25);
-
-            Console.WriteLine($"Array size: {elemets}");
-
-            int[] array = new int[elemets];
-
             Array_proccesing array_Proccesing = new Array_proccesing();
 
-            array_Proccesing.ArrayRand(array);
+            Random rndArray = new Random();
 
-            array_Proccesing.BubbleSort(array);
+            int elements = rndArray.Next(10, 25);
+
+            Console.WriteLine($"Array size: {elements}");
+
+            int[] array = new int[elements];
+
+            array_Proccesing.ArrayRand(array, elements);
+
+            array_Proccesing.BubbleSort(array, elements);
             Console.WriteLine();
 
-            array_Proccesing.Print_Array(array);
+            array_Proccesing.Print_Array(array, elements);
             Console.WriteLine();
         }
 
-        private void ArrayRand(int[] items)
+        private void ArrayRand(int[] items, int elements)
         {
             Random rnd = new Random();
 
             Console.Write("Random array: ");
             Console.Write("{ ");
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < elements; i++)
             {
                 items[i] = rnd.Next(0, 100);
                 Console.Write(items[i]);
@@ -45,13 +41,13 @@ namespace Task_1.Tasks.Language
             Console.Write("}");
         }
 
-        private void BubbleSort(int[] items)
+        private void BubbleSort(int[] items, int elements)
         {
             int temp;
 
-            for (int i = 0; i < items.Length - 1; i++)
+            for (int i = 0; i < elements - 1; i++)
             {
-                for (int j = i + 1; j < items.Length; j++)
+                for (int j = i + 1; j < elements; j++)
                 {
                     if (items[i] > items[j])
                     {
@@ -63,17 +59,17 @@ namespace Task_1.Tasks.Language
             }
         }
 
-        private void Print_Array(int[] items)
+        private void Print_Array(int[] items, int elements)
         {
             int max = 0;
 
             Console.Write("Sort array: ");
             Console.Write("{ ");
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < elements; i++)
             {
                 Console.Write(items[i]);
                 Console.Write(",");
-                if (i == items.Length - 1)
+                if (i == elements - 1)
                 {
                     max = items[i];
                 }
