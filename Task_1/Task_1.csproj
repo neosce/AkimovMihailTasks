@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\Basic\Another triangle.cs" />
+    <Compile Include="Tasks\Basic\Font Adjustment.cs" />
     <Compile Include="Tasks\Basic\Rectangle.cs" />
     <Compile Include="Tasks\Basic\Sum of numbers.cs" />
     <Compile Include="Tasks\Basic\Triangle.cs" />

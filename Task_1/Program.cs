@@ -49,6 +49,7 @@ namespace Task_1
                                             Sum_of_numbers.sum_Of_Numbers();
                                             break;
                                         case 6:
+                                            Font_Adjustment.font_adjustment();
                                             break;
                                         default:
                                             n1 = 0;
