@@ -29,6 +29,15 @@ namespace Task_1.Tasks.Basic
                     fontStyle = FontStyle.none;
                 }
 
+                //Not working
+                //foreach (FontStyle isChek in Enum.GetValues(typeof(FontStyle)))
+                //{
+                //    if (fontStyle.HasFlag(isChek))
+                //    {
+                //        fontStyle = FontStyle.none;
+                //    }
+                //}
+
                 Console.WriteLine($"Параметры надписи: {fontStyle}");
                 Console.WriteLine("Введите:\n" + "1: Bold\n2: italic\n3: underline\n0: Exit");
 
@@ -67,8 +76,17 @@ namespace Task_1.Tasks.Basic
                         fontStyle ^= FontStyle.inderline;
                     }
                 }
-
-                Console.WriteLine(fontStyle);
+                // Не понимаю почему если у fontstyle сбросить все значения то у него 0
+                // Приходится делать костыль
+                if (fontStyle == 0)
+                {
+                    Console.WriteLine("None");
+                }
+                else
+                {
+                    Console.WriteLine(fontStyle);
+                }
+                
             } 
             while (n != 0);
 
@@ -77,7 +95,6 @@ namespace Task_1.Tasks.Basic
 
         public static void font_adjustment()
         {
-            Font_Adjustment font_Adjustment = new Font_Adjustment();
 
             format_change();
 
