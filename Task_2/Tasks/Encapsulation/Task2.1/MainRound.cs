@@ -23,6 +23,7 @@ namespace Task_2.Tasks.Encapsulation.Task2._1
                 Console.WriteLine($"Circumference: {round.Circumference()}");
 
                 Console.WriteLine($"Square: {round.Square()}");
+                Console.WriteLine();
             }
             catch (Exception)
             {

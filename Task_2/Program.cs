@@ -1,5 +1,7 @@
 ﻿using System;
 using Task_2.Tasks.Encapsulation.Task2._1;
+using Task_2.Tasks.Encapsulation.Task2._2;
+using Task_2.Tasks.Encapsulation.Task2._3;
 
 namespace Task_1
 {
@@ -36,10 +38,10 @@ namespace Task_1
                                             MainRound.mainRound();
                                             break;
                                         case 2:
-                                            Console.WriteLine("2");
+                                            MainTriangle.mainTriangle();
                                             break;
                                         case 3:
-                                            Console.WriteLine("3");
+                                            MainUser.mainUser();
                                             break;
                                         case 4:
                                             Console.WriteLine("4");

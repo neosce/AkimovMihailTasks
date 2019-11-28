@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\Encapsulation\Task2.1\MainRound.cs" />
     <Compile Include="Tasks\Encapsulation\Task2.1\Round.cs" />
+    <Compile Include="Tasks\Encapsulation\Task2.2\MainTriangle.cs" />
+    <Compile Include="Tasks\Encapsulation\Task2.2\Triangle.cs" />
+    <Compile Include="Tasks\Encapsulation\Task2.3\MainUser.cs" />
+    <Compile Include="Tasks\Encapsulation\Task2.3\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
