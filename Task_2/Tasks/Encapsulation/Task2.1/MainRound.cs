@@ -8,7 +8,7 @@ namespace Task_2.Tasks.Encapsulation.Task2._1
         public static void mainRound()
         {
             
-            Console.WriteLine("Round");
+            Console.WriteLine("Round:");
             try
             {
                 Console.Write("Input X: ");

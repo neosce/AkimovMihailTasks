@@ -15,13 +15,13 @@ namespace Task_2.Tasks.Encapsulation
 
             set
             {
-                if (Radius > 0)
+                if (value > 0)
                 {
                     radius = value;
                 }
                 else
                 {
-                    Console.WriteLine($"Radius is incorrect, radius > 0 your: {Radius}. \nRadius is set 1");
+                    Console.WriteLine($"Radius is incorrect, radius > 0 your: {value}. \nRadius is set 1");
                     radius = 1;
                 }
             }
@@ -44,7 +44,7 @@ namespace Task_2.Tasks.Encapsulation
         {
             X = x;
             Y = y;
-            this.radius = radius;
+            Radius = radius;
         }
     }
 }
