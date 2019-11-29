@@ -51,6 +51,8 @@
     <Compile Include="Tasks\Encapsulation\Task2.2\Triangle.cs" />
     <Compile Include="Tasks\Encapsulation\Task2.3\MainUser.cs" />
     <Compile Include="Tasks\Encapsulation\Task2.3\User.cs" />
+    <Compile Include="Tasks\Encapsulation\Task2.4\MainMyString.cs" />
+    <Compile Include="Tasks\Encapsulation\Task2.4\MyString.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

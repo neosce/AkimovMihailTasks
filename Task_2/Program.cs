@@ -2,6 +2,7 @@
 using Task_2.Tasks.Encapsulation.Task2._1;
 using Task_2.Tasks.Encapsulation.Task2._2;
 using Task_2.Tasks.Encapsulation.Task2._3;
+using Task_2.Tasks.Encapsulation.Task2._4;
 
 namespace Task_1
 {
@@ -44,7 +45,7 @@ namespace Task_1
                                             MainUser.mainUser();
                                             break;
                                         case 4:
-                                            Console.WriteLine("4");
+                                            MainMyString.mainString();
                                             break;
                                         default:
                                             n1 = 0;

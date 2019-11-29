@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task_2.Tasks.Encapsulation.Task2._3
 {
@@ -36,7 +32,7 @@ namespace Task_2.Tasks.Encapsulation.Task2._3
                     Console.Write("\nInput DateBirthday: ");
                     var dateTime = int.Parse(Console.ReadLine());
 
-                    users.Add(new User() { Name = name, Surname = surname, Patronymic = patronymic, Age = age, DateTime = dateTime });
+                    users.Add(new User(name, surname, patronymic, age, dateTime) { Name = name, Surname = surname, Patronymic = patronymic, Age = age, DateTime = dateTime });
                     
                     Console.WriteLine("Add user? 0 - Exit, 1 - Add");
                     exit = int.Parse(Console.ReadLine());
@@ -47,6 +43,8 @@ namespace Task_2.Tasks.Encapsulation.Task2._3
                 {
                     Console.WriteLine($"User id: {i++} \n Name: {item.Name} \n Suranme: {item.Surname} \n Patronymic: {item.Patronymic} \n Age: {item.Age} \n DateBirthday: {item.DateTime}");
                 }
+
+                Console.WriteLine();
                 
             }
             catch (Exception)
