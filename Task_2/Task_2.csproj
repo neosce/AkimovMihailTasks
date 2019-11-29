@@ -53,12 +53,14 @@
     <Compile Include="Tasks\Encapsulation\Task2.3\User.cs" />
     <Compile Include="Tasks\Encapsulation\Task2.4\MainMyString.cs" />
     <Compile Include="Tasks\Encapsulation\Task2.4\MyString.cs" />
+    <Compile Include="Tasks\Inheritance\Task2.5\Employee.cs" />
+    <Compile Include="Tasks\Inheritance\Task2.5\MainUser.cs" />
+    <Compile Include="Tasks\Inheritance\Task2.5\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Tasks\Inheritance\" />
     <Folder Include="Tasks\Polymorphism\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

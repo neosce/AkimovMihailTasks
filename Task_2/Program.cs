@@ -3,6 +3,7 @@ using Task_2.Tasks.Encapsulation.Task2._1;
 using Task_2.Tasks.Encapsulation.Task2._2;
 using Task_2.Tasks.Encapsulation.Task2._3;
 using Task_2.Tasks.Encapsulation.Task2._4;
+using Task_2.Tasks.Inheritance;
 
 namespace Task_1
 {
@@ -61,7 +62,7 @@ namespace Task_1
                         case 2:
                             do
                             {
-                                Console.WriteLine("Inheritance:\n" + "\n5 - ARRAY PROCCESING" + "\n6 - NO POSITIVE" + "\n0 - BREAK");
+                                Console.WriteLine("Inheritance:\n" + "\n5 - Empolyee" + "\n6 - Ring" + "\n0 - BREAK");
                                 var number_sublist2 = Console.ReadLine();
 
                                 if (int.TryParse(number_sublist2, out n2) && n < 7 && n >= 0)
@@ -69,7 +70,7 @@ namespace Task_1
                                     switch (n2)
                                     {
                                         case 5:
-                                            Console.WriteLine("5");
+                                            Task_2.Tasks.Inheritance.Task2._5.MainUser.mainUser();
                                             break;
                                         case 6:
                                             Console.WriteLine("6");
