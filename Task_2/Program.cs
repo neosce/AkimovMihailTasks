@@ -3,7 +3,8 @@ using Task_2.Tasks.Encapsulation.Task2._1;
 using Task_2.Tasks.Encapsulation.Task2._2;
 using Task_2.Tasks.Encapsulation.Task2._3;
 using Task_2.Tasks.Encapsulation.Task2._4;
-using Task_2.Tasks.Inheritance;
+using Task_2.Tasks.Inheritance.Task2._6;
+using Task_2.Tasks.Polymorphism.Task2._7;
 
 namespace Task_1
 {
@@ -73,7 +74,7 @@ namespace Task_1
                                             Task_2.Tasks.Inheritance.Task2._5.MainUser.mainUser();
                                             break;
                                         case 6:
-                                            Console.WriteLine("6");
+                                            MainRoundShape.mainRoundShape();
                                             break;
                                         default:
                                             n2 = 0;
@@ -98,7 +99,7 @@ namespace Task_1
                                     switch (n3)
                                     {
                                         case 7:
-                                            Console.WriteLine("7");
+                                            MainVectorGE.mainVectorGE();
                                             break;
                                         case 8:
                                             Console.WriteLine("8");

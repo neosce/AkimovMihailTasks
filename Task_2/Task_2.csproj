@@ -56,12 +56,20 @@
     <Compile Include="Tasks\Inheritance\Task2.5\Employee.cs" />
     <Compile Include="Tasks\Inheritance\Task2.5\MainUser.cs" />
     <Compile Include="Tasks\Inheritance\Task2.5\User.cs" />
+    <Compile Include="Tasks\Inheritance\Task2.6\MainRoundShape.cs" />
+    <Compile Include="Tasks\Inheritance\Task2.6\Ring.cs" />
+    <Compile Include="Tasks\Inheritance\Task2.6\RoundShape.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.7\Circle.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.7\Line.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.7\MainVectorGE.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.7\Rectangle.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.7\Ring.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.7\Shape.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.7\Vector_Graphics_Editor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tasks\Polymorphism\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
