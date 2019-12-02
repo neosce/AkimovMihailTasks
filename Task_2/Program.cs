@@ -102,7 +102,7 @@ namespace Task_1
                                             MainVectorGE.mainVectorGE();
                                             break;
                                         case 8:
-                                            Console.WriteLine("8");
+                                            Console.WriteLine("Без реализации");
                                             break;
                                         default:
                                             n3 = 0;
