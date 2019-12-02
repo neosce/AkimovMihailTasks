@@ -11,6 +11,7 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
         {
 
             int n;
+            double rot = 0;
             // Это и есть полиморфизм когды мы можем рабоать используя базовый класс с наследником
             Shape[] shapes = new Shape[4];
 
@@ -39,12 +40,15 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
                         break;
                     }
 
+                    // Сделано примерно как в фотошопе, то есть у нас есть x,y это и есть координаты центра фигуры и место ее расположения на графике
+                    // Далее устанавливется вращение фигуры с помощью rotate, то есть куда и вкакую сторону она будет смотреть
+                    // Отслаьные свойства зависят от самих фигур
                     Console.WriteLine("Enter coordinates for draw your shape");
                     Console.Write("\nEnter x: ");
                     var x = int.Parse(Console.ReadLine());
                     Console.Write("\nEnter y: ");
                     var y = int.Parse(Console.ReadLine());
-
+                    
                     switch (n)
                     {
                         case 1:
@@ -52,9 +56,12 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
 
                             Console.WriteLine("\nEnter length: ");
                             var length = double.Parse(Console.ReadLine());
+                            Console.Write("\nEnter rotatate 0-360: ");
+                            rot = double.Parse(Console.ReadLine());
 
                             shapes[0] = new Line(length);
                             shapes[0].Draw(x, y);
+                            shapes[0].Rotatate(rot);
                             break;
                         case 2:
                             //Rectangle
@@ -63,10 +70,13 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
                             var width = double.Parse(Console.ReadLine());
                             Console.Write("\nEnter height: ");
                             var height = double.Parse(Console.ReadLine());
+                            Console.Write("\nEnter rotatate 0-360: ");
+                            rot = double.Parse(Console.ReadLine());
 
                             shapes[1] = new Rectangle(width, height);
                             shapes[1].Draw(x, y);
                             shapes[1].Area();
+                            shapes[1].Rotatate(rot);
                             break;
                         case 3:
                             //Circle

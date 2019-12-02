@@ -16,5 +16,11 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
         {
             Console.WriteLine($"Draw: ({x}, {y})");
         }
+
+        public override void Rotatate(double rot)
+        {
+            base.Rotatate(rot);
+        }
+
     }
 }
