@@ -1,4 +1,5 @@
 ﻿using System;
+using Task_3.Tasks.Lost;
 
 namespace Task_1
 {
@@ -13,7 +14,7 @@ namespace Task_1
 
             do
             {
-                Console.WriteLine("1 - Encapsulation\n" + "2 - Inheritance\n" + "3 - Polymorphism\n" + "0 - EXIT\n");
+                Console.WriteLine("1 - Lost\n" + "2 - Word Frequency\n" + "3 - Dynamic Array\n" + "0 - EXIT\n");
 
                 var number_list = Console.ReadLine();
 
@@ -22,37 +23,7 @@ namespace Task_1
                     switch (n)
                     {
                         case 1:
-                            do
-                            {
-                                Console.WriteLine("Encapsulation:\n" + "1 - Round" + "\n2 - Triangle" + "\n3 - User" + "\n4 - My String" + "\n0 - BREAK");
-                                var number_sublist1 = Console.ReadLine();
-
-                                if (int.TryParse(number_sublist1, out n1) && n < 5 && n >= 0)
-                                {
-                                    switch (n1)
-                                    {
-                                        case 1:
-                                            Console.WriteLine("Empty1");
-                                            break;
-                                        case 2:
-                                            Console.WriteLine("Empty1");
-                                            break;
-                                        case 3:
-                                            Console.WriteLine("Empty1");
-                                            break;
-                                        case 4:
-                                            Console.WriteLine("Empty1");
-                                            break;
-                                        default:
-                                            n1 = 0;
-                                            break;
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Try once more...");
-                                }
-                            } while (n1 != 0);
+                                MainLost.MLost();   
                             break;
                         case 2:
                             do
