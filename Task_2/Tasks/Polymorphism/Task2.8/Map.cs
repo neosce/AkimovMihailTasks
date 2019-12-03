@@ -2,7 +2,7 @@
 
 namespace Task_2.Tasks.Polymorphism.Task2._8
 {
-    public class Map: Bonus
+    public class Map
     {
 
         public int Width { get; set; }
@@ -18,14 +18,6 @@ namespace Task_2.Tasks.Polymorphism.Task2._8
             Width = width;
             Height = height;
         }
-
-        public override void Apple(int x, int y)
-        {
-            base.Apple(x,y);
-            Console.WriteLine($"Items respawn here: {x}, {y}");
-        }
-
-
 
     }
 }

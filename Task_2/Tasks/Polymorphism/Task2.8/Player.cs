@@ -2,40 +2,29 @@
 
 namespace Task_2.Tasks.Polymorphism.Task2._8
 {
-    public class Player : Bonus, IUnit
+    public class Player : Unit
     {
+
         public int HealthPlayer { get; set; }
-        public int Damage(int damage)
+
+        public Player(int healthPlayer)
         {
-            if (damage > HealthPlayer)
-            {
-                return HealthPlayer = 0;
-            }
-            else
-            {
-                return HealthPlayer - damage;
-            }
+            HealthPlayer = healthPlayer;
         }
 
-        public int Health(int health)
-        {
-            return HealthPlayer = health;
-        }
-
-        public int Move(int speed)
-        {
-            return speed;
-        }
-
-        public int Point(int x, int y)
+        public override int Move(int speed)
         {
             throw new NotImplementedException();
         }
 
-        public override void Apple(int x, int y)
+        public override void Point(int x, int y)
         {
-            base.Apple(x, y);
-            HealthPlayer += 5;
+            throw new NotImplementedException();
+        }
+
+        public override int Damage(int damage)
+        {
+            return base.Damage(HealthPlayer - damage);
         }
 
     }

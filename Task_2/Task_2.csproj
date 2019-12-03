@@ -66,12 +66,16 @@
     <Compile Include="Tasks\Polymorphism\Task2.7\Ring.cs" />
     <Compile Include="Tasks\Polymorphism\Task2.7\Shape.cs" />
     <Compile Include="Tasks\Polymorphism\Task2.7\Vector_Graphics_Editor.cs" />
-    <Compile Include="Tasks\Polymorphism\Task2.8\Bonus.cs" />
-    <Compile Include="Tasks\Polymorphism\Task2.8\IUnit.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.8\Apple.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.8\Cherry.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.8\IBonus.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.8\IObstruction.cs" />
     <Compile Include="Tasks\Polymorphism\Task2.8\Map.cs" />
     <Compile Include="Tasks\Polymorphism\Task2.8\NPC.cs" />
-    <Compile Include="Tasks\Polymorphism\Task2.8\Obstruction.cs" />
     <Compile Include="Tasks\Polymorphism\Task2.8\Player.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.8\Rock.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.8\Tree.cs" />
+    <Compile Include="Tasks\Polymorphism\Task2.8\Unit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
