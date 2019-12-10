@@ -1,4 +1,5 @@
 ﻿using System;
+using Task_3.Tasks.Dynamic_Array;
 using Task_3.Tasks.Lost;
 using Task_3.Tasks.Word_Frequency;
 
@@ -30,7 +31,7 @@ namespace Task_1
                             MainWordFrequency.MainWFrequency();
                             break;
                         case 3:
-                            Console.WriteLine("");
+                            MainArray.DynamicArrayTest();
                             break;
                         default:
                             n = 0;
