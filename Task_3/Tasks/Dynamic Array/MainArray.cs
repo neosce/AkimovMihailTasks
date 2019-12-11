@@ -43,6 +43,15 @@ namespace Task_3.Tasks.Dynamic_Array
                 Console.WriteLine(item);
             }
 
+            Console.WriteLine("AddRange");
+            DynamicArray<string> addRangeArray = new DynamicArray<string>(ctor);
+            addRangeArray.AddRange(ctor);
+            foreach (var item in addRangeArray)
+            {
+                Console.WriteLine(item);
+            }
+
+
             Console.WriteLine("Clone");
             var mas = new int[3] { 1, 2, 3 };
             int[] mas2 = mas.Clone() as int[];

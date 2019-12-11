@@ -75,6 +75,19 @@ namespace Task_3.Tasks.Dynamic_Array
             items[Count++] = item;
         }
 
+        public void AddRange(IEnumerable<T> items)
+        {
+            int capacity = items.Count() + this.items.Length;
+            int cout = 0;
+            T[] newArray = new T[capacity];
+            Array.Copy((T[])items, newArray, items.Count());
+            
+            for (int i = items.Count(); i < capacity; i++)
+            {
+                newArray[i] = this.items[cout++];
+            }
+        }
+
         public void Clear()
         {
             items = new T[0];
@@ -146,12 +159,15 @@ namespace Task_3.Tasks.Dynamic_Array
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new DynamicArrayEnumerator<T>(items);
+            foreach (T item in items)
+            {
+                yield return item;
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return items.GetEnumerator();
+            return GetEnumerator();
         }
 
     }
