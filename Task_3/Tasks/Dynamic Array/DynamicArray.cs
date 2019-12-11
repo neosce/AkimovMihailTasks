@@ -78,6 +78,10 @@ namespace Task_3.Tasks.Dynamic_Array
         public void AddRange(IEnumerable<T> items)
         {
             int capacity = items.Count() + this.items.Length;
+            if (capacity == 0)
+            {
+                throw new InvalidOperationException();
+            }
             int cout = 0;
             T[] newArray = new T[capacity];
             Array.Copy((T[])items, newArray, items.Count());
