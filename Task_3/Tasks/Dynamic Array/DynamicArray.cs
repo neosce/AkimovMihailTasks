@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Task_3.Tasks.Dynamic_Array
 {
     public class DynamicArray<T>: IEnumerable<T>, IEnumerable, ICloneable
     {
 
-        const int defaultCapasity = 8;
+        const int defaultCapacity = 8;
         private T[] items = default;
 
         /// <summary>
-        /// Количество хранимых элементов в массиве default 0
+        /// The number of stored items in the array (default 0)
         /// </summary>
         public int Count { get; private set; }
 
@@ -28,9 +29,9 @@ namespace Task_3.Tasks.Dynamic_Array
         }
 
         /// <summary>
-        /// Размер массива (количество элементов которые в нем изначально создаются) default 8
+        /// The size of the array (the number of elements that are initially created in it) (default 8)
         /// </summary>
-        public int Capasity
+        public int Capacity
         {
             get
             {
@@ -40,17 +41,22 @@ namespace Task_3.Tasks.Dynamic_Array
 
         public DynamicArray()
         {
-            items = new T[defaultCapasity];
+            items = new T[defaultCapacity];
         }
 
-        public DynamicArray(int capasity)
+        public DynamicArray(int capacity)
         {
-            items = new T[capasity];
+            items = new T[capacity];
         }
 
         public DynamicArray(IEnumerable<T> items)
         {
-            //this.items = new T[items];
+            if (items == null)
+            {
+                throw new InvalidOperationException();
+            }
+            this.items = new T[items.Count()];
+            Array.Copy((T[])items, this.items, items.Count());
         }
 
         public void Add(T item)
@@ -180,14 +186,14 @@ namespace Task_3.Tasks.Dynamic_Array
             return this;
         }
 
-        object IEnumerator.Current => throw new NotImplementedException();
-        //object IEnumerator.Current 
-        //{
-        //    get
-        //    {
-        //        return Current;
-        //    }
-        //}
+        //object IEnumerator.Current => throw new NotImplementedException();
+        object IEnumerator.Current
+        {
+            get
+            {
+                return array[position];
+            }
+        }
 
         public bool MoveNext()
         {

@@ -27,25 +27,21 @@ namespace Task_3.Tasks.Dynamic_Array
             addArray.Add(120);
             addArray.Add(130);
             
-            // FOR TEST!
-            //Console.WriteLine(dArray[0]);
-            //Console.WriteLine(dArray[1]);
-            //Console.WriteLine(dArray[2]);
-            //Console.WriteLine(dArray[3]);
-            //Console.WriteLine(dArray[4]);
-            //Console.WriteLine(dArray[5]);
-            //Console.WriteLine(dArray[6]);
-            //Console.WriteLine(dArray[7]);
-            //Console.WriteLine(dArray[8]);
-            //Console.WriteLine(dArray[9]);
-            //Console.WriteLine(dArray[10]);
-            //
-            
             foreach (var item in addArray)
             {
                 Console.WriteLine(item);
             }
             Console.WriteLine("Count = " + addArray.Count());
+
+            Console.WriteLine("Ctor IEnumerable<T>");
+            string[] ctor = { "Brachiosaurus", "Amargasaurus", "Mamenchisaurus" };
+            DynamicArray<string> ctorTest = new DynamicArray<string>(ctor);
+            Console.WriteLine("\nCapacity: {0}", ctorTest.Capacity);
+            Console.WriteLine();
+            foreach (var item in ctorTest)
+            {
+                Console.WriteLine(item);
+            }
 
             Console.WriteLine("Clone");
             var mas = new int[3] { 1, 2, 3 };
@@ -64,17 +60,19 @@ namespace Task_3.Tasks.Dynamic_Array
                 Console.WriteLine(item);
             }
 
-            DynamicArray<string> input = new DynamicArray<string>() {"1", "2", "3"};
-            foreach (var item in input)
-            {
-                Console.WriteLine(item);
-            }
-            DynamicArray<string> toArray = input.ToArray() as DynamicArray<string>;
-            Console.WriteLine("toArray");
-            foreach (var item in toArray)
-            {
-                Console.WriteLine(item);
-            }
+
+            //Console.WriteLine("ToArray: ");
+            //DynamicArray<string> input = new DynamicArray<string>() {"1", "2", "3"};
+            //foreach (var item in input)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //DynamicArray<string> toArray = input.ToArray() as DynamicArray<string>;
+            //Console.WriteLine("toArray");
+            //foreach (var item in toArray)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
 
         }
