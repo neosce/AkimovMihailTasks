@@ -50,6 +50,8 @@
     <Compile Include="Tasks\4.3 Sorting Unit\Sorting Unit.cs" />
     <Compile Include="Tasks\4.4 Number Array Sum\NumberArraySum.cs" />
     <Compile Include="Tasks\4.4 Number Array Sum\Sum Extensions.cs" />
+    <Compile Include="Tasks\4.5. To Int Or Not To Int\Int Extensions.cs" />
+    <Compile Include="Tasks\4.5. To Int Or Not To Int\To Int Or Not To Int.cs" />
     <Compile Include="Tasks\Methods\Array Random.cs" />
     <Compile Include="Tasks\Methods\Bubble Sort.cs" />
     <Compile Include="Tasks\Methods\PrintArray.cs" />

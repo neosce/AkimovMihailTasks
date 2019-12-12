@@ -3,6 +3,7 @@ using Task_4.Tasks._4._1_Custom_Sort;
 using Task_4.Tasks._4._2_Custom_Sort_Demo;
 using Task_4.Tasks._4._3_Sorting_Unit;
 using Task_4.Tasks._4._4_Number_Array_Sum;
+using Task_4.Tasks._4._5._To_Int_Or_Not_To_Int;
 
 namespace Task_1
 {
@@ -37,7 +38,7 @@ namespace Task_1
                             NumberArraySum.NumberArraySumMain();
                             break;
                         case 5:
-                            Console.WriteLine("");
+                            To_Int_Or_Not_To_Int.ToIntOrNotToIntMain();
                             break;
                         case 6:
                             Console.WriteLine("");
