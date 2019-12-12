@@ -2,6 +2,7 @@
 using Task_4.Tasks._4._1_Custom_Sort;
 using Task_4.Tasks._4._2_Custom_Sort_Demo;
 using Task_4.Tasks._4._3_Sorting_Unit;
+using Task_4.Tasks._4._4_Number_Array_Sum;
 
 namespace Task_1
 {
@@ -19,7 +20,7 @@ namespace Task_1
 
                 var number_list = Console.ReadLine();
 
-                if (int.TryParse(number_list, out n) && n < 4 && n >= 0)
+                if (int.TryParse(number_list, out n) && n < 7 && n >= 0)
                 {
                     switch (n)
                     {
@@ -33,7 +34,7 @@ namespace Task_1
                             Sorting_Unit.SortingUnitMain();
                             break;
                         case 4:
-                            Console.WriteLine("");
+                            NumberArraySum.NumberArraySumMain();
                             break;
                         case 5:
                             Console.WriteLine("");

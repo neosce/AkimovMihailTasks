@@ -48,6 +48,8 @@
     <Compile Include="Tasks\4.1 Custom Sort\Custom_Sort.cs" />
     <Compile Include="Tasks\4.2 Custom Sort Demo\Custom Sort Demo.cs" />
     <Compile Include="Tasks\4.3 Sorting Unit\Sorting Unit.cs" />
+    <Compile Include="Tasks\4.4 Number Array Sum\NumberArraySum.cs" />
+    <Compile Include="Tasks\4.4 Number Array Sum\Sum Extensions.cs" />
     <Compile Include="Tasks\Methods\Array Random.cs" />
     <Compile Include="Tasks\Methods\Bubble Sort.cs" />
     <Compile Include="Tasks\Methods\PrintArray.cs" />
