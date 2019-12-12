@@ -46,6 +46,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\4.1 Custom Sort\Custom_Sort.cs" />
+    <Compile Include="Tasks\4.2 Custom Sort Demo\Custom Sort Demo.cs" />
+    <Compile Include="Tasks\Methods\PrintArray.cs" />
+    <Compile Include="Tasks\Methods\RandomWords.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
