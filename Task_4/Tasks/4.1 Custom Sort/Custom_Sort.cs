@@ -3,7 +3,7 @@
 namespace Task_4.Tasks._4._1_Custom_Sort
 {
     public delegate void Swap(int[] items, int i, int j);
-    public delegate bool ActionCompare(int i, int j);
+    public delegate bool ActionFunc(int i, int j);
 
     public class Custom_Sort
     {
@@ -22,7 +22,7 @@ namespace Task_4.Tasks._4._1_Custom_Sort
 
         private void BubbleSort(int[] items)
         {
-            ActionCompare action = new ActionCompare(compare);
+            ActionFunc action = new ActionFunc(compare);
             Swap swap = new Swap(SwapArray);
 
             for (int i = 0; i < items.Length - 1; i++)
@@ -35,21 +35,6 @@ namespace Task_4.Tasks._4._1_Custom_Sort
                     }
                 }
             }
-        }
-
-        private void ArrayRand(int[] items)
-        {
-            Random rnd = new Random();
-
-            Console.Write("Random array: ");
-            Console.Write("{ ");
-            for (int i = 0; i < items.Length; i++)
-            {
-                items[i] = rnd.Next(0, 100);
-                Console.Write(items[i]);
-                Console.Write(",");
-            }
-            Console.Write("}");
         }
 
         public static void CustomSortMain()
@@ -65,7 +50,9 @@ namespace Task_4.Tasks._4._1_Custom_Sort
 
             int[] array = new int[elements];
 
-            custom_Sort.ArrayRand(array);
+            Methods.Array_Random array_Random = new Methods.Array_Random();
+            array_Random.ArrayRand(array);
+
             custom_Sort.BubbleSort(array);
             printArray.Print_Array(array, "Sort Array");
 

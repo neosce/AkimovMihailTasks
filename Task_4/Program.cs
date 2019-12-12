@@ -1,6 +1,7 @@
 ﻿using System;
 using Task_4.Tasks._4._1_Custom_Sort;
 using Task_4.Tasks._4._2_Custom_Sort_Demo;
+using Task_4.Tasks._4._3_Sorting_Unit;
 
 namespace Task_1
 {
@@ -29,7 +30,7 @@ namespace Task_1
                             Custom_Sort_Demo.CustomSortDemoMain();
                             break;
                         case 3:
-                            Console.WriteLine("");
+                            Sorting_Unit.SortingUnitMain();
                             break;
                         case 4:
                             Console.WriteLine("");

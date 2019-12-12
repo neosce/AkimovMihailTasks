@@ -4,7 +4,7 @@ namespace Task_4.Tasks._4._2_Custom_Sort_Demo
 {
     public delegate void Swap(string[] item, int i, int j);
     public delegate bool Alphabet(string s1, string s2);
-    public delegate bool ActionCompare(int i, int j);
+    public delegate bool ActionFunc(int i, int j);
 
     public class Custom_Sort_Demo
     {
@@ -45,8 +45,8 @@ namespace Task_4.Tasks._4._2_Custom_Sort_Demo
         {
             Swap swap = new Swap(SwapArray);
             Alphabet alphabet = new Alphabet(AlphabetArray);
-            ActionCompare actionCompare = new ActionCompare(compare);
-            ActionCompare actionEquals = new ActionCompare(equals);
+            ActionFunc actionCompare = new ActionFunc(compare);
+            ActionFunc actionEquals = new ActionFunc(equals);
 
             for (int i = 0; i < items.Length - 1; i++)
             {
@@ -55,7 +55,8 @@ namespace Task_4.Tasks._4._2_Custom_Sort_Demo
                     if (actionCompare(items[i].Length, items[j].Length) )
                     {
                         swap(items, i, j);
-                    } else if(actionEquals(items[i].Length, items[j].Length) && alphabet(items[i], items[j]))
+                    } 
+                    else if(actionEquals(items[i].Length, items[j].Length) && alphabet(items[i], items[j]))
                     {
                         swap(items, i, j);
                     }
