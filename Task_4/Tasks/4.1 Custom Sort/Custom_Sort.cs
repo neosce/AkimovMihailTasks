@@ -7,7 +7,7 @@ namespace Task_4.Tasks._4._1_Custom_Sort
 
     public class Custom_Sort
     {
-        Func<int, int, bool> compare = delegate (int i, int j)
+        private readonly Func<int, int, bool> compare = delegate (int i, int j)
         {
             return i > j;
         };

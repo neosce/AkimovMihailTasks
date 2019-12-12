@@ -8,9 +8,13 @@ namespace Task_4.Tasks._4._2_Custom_Sort_Demo
 
     public class Custom_Sort_Demo
     {
-        Func<int, int, bool> compare = delegate (int i, int j)
+        private readonly Func<int, int, bool> compare = delegate (int i, int j)
         {
             return i > j;
+        };
+        private readonly Func<int, int, bool> equals = delegate (int i, int j)
+        {
+            return i == j;
         };
 
         private static void SwapArray(string[] items, int i, int j)
@@ -42,12 +46,16 @@ namespace Task_4.Tasks._4._2_Custom_Sort_Demo
             Swap swap = new Swap(SwapArray);
             Alphabet alphabet = new Alphabet(AlphabetArray);
             ActionCompare actionCompare = new ActionCompare(compare);
+            ActionCompare actionEquals = new ActionCompare(equals);
 
             for (int i = 0; i < items.Length - 1; i++)
             {
                 for (int j = i + 1; j < items.Length; j++)
                 {
-                    if (actionCompare(items[i].Length, items[j].Length) || alphabet(items[i], items[j]))
+                    if (actionCompare(items[i].Length, items[j].Length) )
+                    {
+                        swap(items, i, j);
+                    } else if(actionEquals(items[i].Length, items[j].Length) && alphabet(items[i], items[j]))
                     {
                         swap(items, i, j);
                     }
