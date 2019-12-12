@@ -6,7 +6,7 @@ namespace Task_4.Tasks._4._1_Custom_Sort
 
     public class Custom_Sort
     {
-        private static void SwapItems(int[] items, int i, int j)
+        private static void SwapArray(int[] items, int i, int j)
         {
             int temp;
             temp = items[i];
@@ -16,7 +16,7 @@ namespace Task_4.Tasks._4._1_Custom_Sort
 
         private void BubbleSort(int[] items)
         {
-            Swap swap = new Swap(SwapItems);
+            Swap swap = new Swap(SwapArray);
 
             for (int i = 0; i < items.Length - 1; i++)
             {
@@ -30,13 +30,13 @@ namespace Task_4.Tasks._4._1_Custom_Sort
             }
         }
 
-        private void ArrayRand(int[] items, int elements)
+        private void ArrayRand(int[] items)
         {
             Random rnd = new Random();
 
             Console.Write("Random array: ");
             Console.Write("{ ");
-            for (int i = 0; i < elements; i++)
+            for (int i = 0; i < items.Length; i++)
             {
                 items[i] = rnd.Next(0, 100);
                 Console.Write(items[i]);
@@ -70,7 +70,7 @@ namespace Task_4.Tasks._4._1_Custom_Sort
 
             int[] array = new int[elements];
 
-            custom_Sort.ArrayRand(array, elements);
+            custom_Sort.ArrayRand(array);
             custom_Sort.BubbleSort(array);
             custom_Sort.Print_Array(array);
 

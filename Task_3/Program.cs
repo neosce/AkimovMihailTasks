@@ -41,6 +41,7 @@ namespace Task_1
                 else
                 {
                     Console.WriteLine("Try once more...");
+                    n = -1;
                 }
 
                 Console.WriteLine();

@@ -7,7 +7,6 @@ namespace Task_1
     {
         static void Main(string[] args)
         {
-
             int n;
 
             Console.WriteLine("Task_4\n" + "The task corresponds to the number in the list:");
@@ -48,6 +47,7 @@ namespace Task_1
                 else
                 {
                     Console.WriteLine("Try once more...");
+                    n = -1;
                 }
 
                 Console.WriteLine();
