@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\Dynamic Array\DynamicArray.cs" />
+    <Compile Include="Tasks\Dynamic Array\DynamicArrayEnumerator.cs" />
     <Compile Include="Tasks\Dynamic Array\MainArray.cs" />
     <Compile Include="Tasks\Lost\MainLost.cs" />
     <Compile Include="Tasks\Word Frequency\Algorithm_Word_Frequency.cs" />

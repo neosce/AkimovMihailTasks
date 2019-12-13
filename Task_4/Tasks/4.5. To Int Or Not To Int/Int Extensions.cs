@@ -25,17 +25,19 @@ namespace Task_4.Tasks._4._5._To_Int_Or_Not_To_Int
             }
 
             bool isPositive = true;
+            int i = 0;
 
             if (value[0] == '-')
             {
                 isPositive = false;
+                i = 1;
             }
 
-            for (int i = 0; i < value.Length; i++)
+            for (; i < value.Length; i++)
             {
                 if (!char.IsDigit(value[i]))
                 {
-                    return false;
+                    throw new ArgumentException();
                 }
             }
             return isPositive;

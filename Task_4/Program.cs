@@ -4,6 +4,7 @@ using Task_4.Tasks._4._2_Custom_Sort_Demo;
 using Task_4.Tasks._4._3_Sorting_Unit;
 using Task_4.Tasks._4._4_Number_Array_Sum;
 using Task_4.Tasks._4._5._To_Int_Or_Not_To_Int;
+using Task_4.Tasks._4._6_I_seek_you;
 
 namespace Task_1
 {
@@ -41,7 +42,7 @@ namespace Task_1
                             To_Int_Or_Not_To_Int.ToIntOrNotToIntMain();
                             break;
                         case 6:
-                            Console.WriteLine("");
+                            I_seek_you.ISeekYouMain();
                             break;
                         default:
                             n = 0;

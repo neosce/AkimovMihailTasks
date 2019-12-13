@@ -52,8 +52,11 @@
     <Compile Include="Tasks\4.4 Number Array Sum\Sum Extensions.cs" />
     <Compile Include="Tasks\4.5. To Int Or Not To Int\Int Extensions.cs" />
     <Compile Include="Tasks\4.5. To Int Or Not To Int\To Int Or Not To Int.cs" />
+    <Compile Include="Tasks\4.6 I seek you\I seek you.cs" />
     <Compile Include="Tasks\Methods\Array Random.cs" />
+    <Compile Include="Tasks\Methods\Binary Search.cs" />
     <Compile Include="Tasks\Methods\Bubble Sort.cs" />
+    <Compile Include="Tasks\Methods\Linear Search.cs" />
     <Compile Include="Tasks\Methods\PrintArray.cs" />
     <Compile Include="Tasks\Methods\RandomWords.cs" />
   </ItemGroup>

@@ -18,5 +18,16 @@ namespace Task_4.Tasks.Methods
             }
             Console.Write("}");
         }
+
+        public void ArrayRandNoPrint(int[] items)
+        {
+            Random rnd = new Random();
+
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i] = rnd.Next(-500, 500);
+            }
+        }
+
     }
 }
