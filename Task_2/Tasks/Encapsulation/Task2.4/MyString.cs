@@ -7,7 +7,7 @@ namespace Task_2.Tasks.Encapsulation.Task2._4
 
         public void Concatenation(string str1, string str2)
         {
-            Console.WriteLine(string.Concat(str1, str2)); // через "+" слишком изи
+            Console.WriteLine(string.Concat(str1, str2)); 
         }
 
         public void Comparison(string str1, string str2)
