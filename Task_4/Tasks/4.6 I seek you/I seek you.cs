@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Task_4.Tasks.Methods;
 
 namespace Task_4.Tasks._4._6_I_seek_you
 {
-
-    public delegate bool ActionFunc(int i, int j);
 
     public class I_seek_you
     {
