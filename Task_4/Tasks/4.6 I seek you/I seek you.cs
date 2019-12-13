@@ -7,10 +7,6 @@ namespace Task_4.Tasks._4._6_I_seek_you
 
     public class I_seek_you
     {
-        private readonly Func<int, int, bool> compare = delegate (int i, int j)
-        {
-            return i > j;
-        };
         private static int SizeArray()
         {
             Random random = new Random();
@@ -21,8 +17,6 @@ namespace Task_4.Tasks._4._6_I_seek_you
         public static void ISeekYouMain()
         {
             Console.WriteLine("I seek you".ToUpper());
-
-            Stopwatch stopwatch = new Stopwatch();
             
             // Stuff array
             int[] array = new int[SizeArray()];
