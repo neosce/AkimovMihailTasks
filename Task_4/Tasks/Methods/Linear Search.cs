@@ -134,7 +134,7 @@ namespace Task_4.Tasks.Methods
                 averageSearch.Add(stopwatch.ElapsedMilliseconds);
             }
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"4 - Method\nNumber of array positive : {countElements.Count} for replay {countReplay}\nmSec for average: {averageSearch.Average()}");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
