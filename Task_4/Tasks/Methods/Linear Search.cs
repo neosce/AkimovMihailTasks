@@ -162,6 +162,5 @@ namespace Task_4.Tasks.Methods
             Console.WriteLine($"5 - Method\nNumber of array positive : {countElements.Count} for replay {countReplay}\nmSec for average: {averageSearch.Average()}");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
-
     }
 }

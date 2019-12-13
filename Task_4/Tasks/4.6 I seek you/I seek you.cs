@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
 using Task_4.Tasks.Methods;
 
 namespace Task_4.Tasks._4._6_I_seek_you
 {
-
     public class I_seek_you
     {
         private static int SizeArray()
@@ -20,7 +18,7 @@ namespace Task_4.Tasks._4._6_I_seek_you
             
             // Stuff array
             int[] array = new int[SizeArray()];
-            Methods.Array_Random array_Random = new Methods.Array_Random();
+            Array_Random array_Random = new Array_Random();
             array_Random.ArrayRandNoPrint(array);
 
             var countReplay = default(int);
@@ -46,10 +44,6 @@ namespace Task_4.Tasks._4._6_I_seek_you
             {
                 Console.WriteLine("Algorithm crash...");
             }
-
-
-
         }
-
     }
 }
