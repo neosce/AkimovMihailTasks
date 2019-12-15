@@ -15,9 +15,12 @@ namespace Task_4.Tasks._4._6_I_seek_you
         public static void ISeekYouMain()
         {
             Console.WriteLine("I seek you".ToUpper());
-            
+
+            var size = SizeArray();
+            Console.WriteLine($"Size array: {size}");
+
             // Stuff array
-            int[] array = new int[SizeArray()];
+            int[] array = new int[size];
             Array_Random array_Random = new Array_Random();
             array_Random.ArrayRandNoPrint(array);
 
