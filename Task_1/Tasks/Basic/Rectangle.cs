@@ -5,11 +5,6 @@ namespace Task_1.Tasks
     public class Rectangle
     {
 
-        private int rectangle(int a, int b)
-        {
-            return a * b;
-        }
-
         public static void RectangleMain()
         {
             Rectangle rectangle = new Rectangle();
@@ -30,5 +25,11 @@ namespace Task_1.Tasks
                 Console.WriteLine("Square = " + rectangle.rectangle(a, b));
             }
         }
+
+        private int rectangle(int a, int b)
+        {
+            return a * b;
+        }
+
     }
 }

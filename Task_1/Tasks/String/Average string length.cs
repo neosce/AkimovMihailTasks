@@ -5,6 +5,16 @@ namespace Task_1.Tasks.String
     public class Average_string_length
     {
 
+        public static void average_string_length()
+        {
+
+            Console.WriteLine("Input your string: ");
+            var str = Console.ReadLine();
+
+            MainString(str);
+            Console.WriteLine();
+        }
+
         private static void MainString(string str)
         {
             char c;
@@ -26,18 +36,9 @@ namespace Task_1.Tasks.String
                 cout++;
             }
 
-            Console.WriteLine($"Center number: { cout / 2}");
+            Console.WriteLine($"Center number: {cout / 2}");
             Console.WriteLine($"Center word:{strClean[strClean.Length / 2]}");
         }
 
-        public static void average_string_length()
-        {
-
-            Console.WriteLine("Input your string: ");
-            var str = Console.ReadLine();
-
-            MainString(str);
-            Console.WriteLine();
-        }
     }
 }

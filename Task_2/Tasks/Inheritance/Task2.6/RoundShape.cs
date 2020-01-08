@@ -5,10 +5,13 @@ namespace Task_2.Tasks.Inheritance.Task2._6
     public class RoundShape
     {
 
+        private double radius;
+        private double innerRadius;
+
         public double X { get; set; }
         public double Y { get; set; }
         
-        private double radius;
+        
         public double Radius
         {
             get
@@ -28,8 +31,7 @@ namespace Task_2.Tasks.Inheritance.Task2._6
                 }
             }
         }
-
-        private double innerRadius;
+        
         public double InnerRadius
         {
             get

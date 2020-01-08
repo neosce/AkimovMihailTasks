@@ -14,7 +14,6 @@ namespace Task_5.Controller
     {
 
         private FileController fileController = new FileController();
-        private ReaderController readerController = new ReaderController();
         Events events = new Events();
         FileSystemWatcher fileSystemWatcher;
         IEnumerable<string> BackUp;
@@ -49,7 +48,7 @@ namespace Task_5.Controller
 
         }
 
-        [STAThread]
+        //[STAThread]
         private void WatcherStop(FileSystemWatcher fileSystemWatcher)
         {
             // Отписка от событий и выключаем наблюдение
@@ -90,6 +89,8 @@ namespace Task_5.Controller
                 events.FilePath = e.FullPath;
                 events.Name = e.Name;
                 events.OldName = "";
+
+                ReaderController readerController = new ReaderController();
 
                 BackUp = null;
                 BackUp = readerController.RecordLogBackUp(events.FilePath);

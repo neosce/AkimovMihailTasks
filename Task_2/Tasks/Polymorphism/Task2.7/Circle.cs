@@ -6,6 +6,7 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
     {
 
         private double radius;
+        
         public double Radius
         {
             get

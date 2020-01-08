@@ -6,6 +6,17 @@ namespace Task_2.Tasks.Encapsulation
     {
 
         private double radius;
+
+        public Round(double x, double y, double radius)
+        {
+            X = x;
+            Y = y;
+            Radius = radius;
+        }
+
+        public double X { get; set; }
+        public double Y { get; set; }
+
         public double Radius
         {
             get
@@ -27,9 +38,6 @@ namespace Task_2.Tasks.Encapsulation
             }
         }
 
-        public double X { get; set; }
-        public double Y { get; set; }
-
         public double Circumference()
         {
             return 2 * Math.PI * radius;
@@ -40,11 +48,5 @@ namespace Task_2.Tasks.Encapsulation
             return Math.PI * radius * radius;
         }
 
-        public Round(double x, double y, double radius)
-        {
-            X = x;
-            Y = y;
-            Radius = radius;
-        }
     }
 }

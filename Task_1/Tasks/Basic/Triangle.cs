@@ -6,6 +6,17 @@ namespace Task_1.Tasks.Basic
     public class Triangle
     {
 
+        public static void triangle()
+        {
+            Triangle triangle = new Triangle();
+
+            Console.WriteLine("RECTANGLE:\n" + "Input N:");
+
+            var n = int.Parse(Console.ReadLine());
+
+            triangle.triangleInput(n);
+        }
+
         private void triangleInput(int n)
         {
             for (int i = 0; i < n; i++)
@@ -18,15 +29,5 @@ namespace Task_1.Tasks.Basic
             }
         }
 
-        public static void triangle()
-        {
-            Triangle triangle = new Triangle();
-
-            Console.WriteLine("RECTANGLE:\n" + "Input N:");
-
-            var n = int.Parse(Console.ReadLine());
-
-            triangle.triangleInput(n);
-        }
     }
 }

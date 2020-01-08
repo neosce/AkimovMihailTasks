@@ -5,9 +5,6 @@ namespace Task_2.Tasks.Polymorphism.Task2._8
     public class Map
     {
 
-        public int Width { get; set; }
-        public int Height { get; set; }
-
         /// <summary>
         /// Задаем размер карты
         /// </summary>
@@ -18,6 +15,9 @@ namespace Task_2.Tasks.Polymorphism.Task2._8
             Width = width;
             Height = height;
         }
+
+        public int Width { get; set; }
+        public int Height { get; set; }
 
     }
 }

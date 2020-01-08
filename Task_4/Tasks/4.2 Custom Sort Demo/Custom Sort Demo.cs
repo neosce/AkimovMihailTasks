@@ -8,6 +8,28 @@ namespace Task_4.Tasks._4._2_Custom_Sort_Demo
 
     public class Custom_Sort_Demo
     {
+
+        public static void CustomSortDemoMain()
+        {
+            Console.WriteLine("Custom Sort Demo".ToUpper());
+
+            Random rndArray = new Random();
+            int elements = rndArray.Next(10, 25);
+            Console.WriteLine($"Array size: {elements}");
+            string[] array = new string[elements];
+
+            Methods.RandomWords randomWords = new Methods.RandomWords();
+            randomWords.ArrayRand(array);
+
+            Custom_Sort_Demo custom_Sort_Demo = new Custom_Sort_Demo();
+            custom_Sort_Demo.BubbleSort(array);
+
+            Methods.PrintArray<string> printArray = new Methods.PrintArray<string>();
+            printArray.Print_Array(array, "Sort string");
+
+            Console.WriteLine();
+        }
+
         private readonly Func<int, int, bool> compare = delegate (int i, int j)
         {
             return i > j;
@@ -62,27 +84,6 @@ namespace Task_4.Tasks._4._2_Custom_Sort_Demo
                     }
                 }
             }
-        }
-
-        public static void CustomSortDemoMain()
-        {
-            Console.WriteLine("Custom Sort Demo".ToUpper());
-
-            Random rndArray = new Random();
-            int elements = rndArray.Next(10, 25);
-            Console.WriteLine($"Array size: {elements}");
-            string[] array = new string[elements];
-
-            Methods.RandomWords randomWords = new Methods.RandomWords();
-            randomWords.ArrayRand(array);
-
-            Custom_Sort_Demo custom_Sort_Demo = new Custom_Sort_Demo();
-            custom_Sort_Demo.BubbleSort(array);
-
-            Methods.PrintArray<string> printArray = new Methods.PrintArray<string>();
-            printArray.Print_Array(array, "Sort string");
-
-            Console.WriteLine();
         }
 
     }

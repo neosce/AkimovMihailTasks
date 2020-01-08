@@ -5,6 +5,11 @@ namespace Task_1.Tasks.Language
     public class No_positive
     {
 
+        public static void no_positive()
+        {
+            ArrayMain();
+        }
+
         private static void ArrayMain()
         {
             int[,,] arraythree = new int[3, 3, 3];
@@ -64,11 +69,5 @@ namespace Task_1.Tasks.Language
             }
         }
 
-        public static void no_positive()
-        {
-
-            ArrayMain();
-
-        }
     }
 }

@@ -6,6 +6,26 @@ namespace Task_3.Tasks.Lost
     public class MainLost
     {
 
+        public static void MLost()
+        {
+
+            Console.WriteLine("LOST");
+
+            try
+            {
+                Console.Write("Enter number people: ");
+                var people = int.Parse(Console.ReadLine());
+
+                AlgorithmLost(people);
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Incorrect input...");
+            }
+
+        }
+
         private static void AlgorithmLost(int N)
         {
             int current = 0;
@@ -36,24 +56,5 @@ namespace Task_3.Tasks.Lost
 
         }
 
-        public static void MLost()
-        {
-
-            Console.WriteLine("LOST");
-
-            try
-            {
-                Console.Write("Enter number people: ");
-                var people = int.Parse(Console.ReadLine());
-
-                AlgorithmLost(people);
-
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Incorrect input...");
-            }
-
-        }
     }
 }

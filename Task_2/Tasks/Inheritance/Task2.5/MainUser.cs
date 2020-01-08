@@ -16,7 +16,7 @@ namespace Task_2.Tasks.Inheritance.Task2._5
 
                 int exit = 1, i = 1;
 
-                ObservableCollection<User> users = new ObservableCollection<User>();
+                Collection<User> users = new Collection<User>();
 
                 do
                 {
@@ -30,13 +30,22 @@ namespace Task_2.Tasks.Inheritance.Task2._5
                     Console.Write("\nInput Age: ");
                     var age = int.Parse(Console.ReadLine());
                     Console.Write("\nInput DateBirthday: ");
-                    var dateTime = int.Parse(Console.ReadLine());
+                    var dateTime = Console.ReadLine();
                     Console.Write("\nInput WorkExperience: ");
                     var workExperience = int.Parse(Console.ReadLine());
                     Console.Write("\nInput Position: ");
                     var position = Console.ReadLine();
 
-                    users.Add(new User(name, surname, patronymic, age, dateTime, workExperience, position) { Name = name, Surname = surname, Patronymic = patronymic, Age = age, DateTime = dateTime, WorkExperience = workExperience, Position = position});
+                    users.Add(new User(name, surname, patronymic, dateTime, age, workExperience, position) 
+                    { 
+                        Name = name, 
+                        Surname = surname, 
+                        Patronymic = patronymic,
+                        DateTime = dateTime,
+                        Age = age,  
+                        WorkExperience = workExperience, 
+                        Position = position
+                    });
 
                     Console.WriteLine("Add user? 0 - Exit, 1 - Add");
                     exit = int.Parse(Console.ReadLine());

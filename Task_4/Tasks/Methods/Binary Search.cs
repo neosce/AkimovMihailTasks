@@ -5,39 +5,6 @@ namespace Task_4.Tasks.Methods
     public class Binary_Search
     {
 
-        private static int BinarySearch(int[] array, int searchedValue, int first, int last)
-        {
-            // borders converge
-            if (first > last)
-            {
-                //value not found
-                return -1;
-            }
-
-            // average subarray index
-            var middle = (first + last) / 2;
-            // value in the middle of the subarray
-            var middleValue = array[middle];
-
-            if (middleValue == searchedValue)
-            {
-                return middle;
-            }
-            else
-            {
-                if (middleValue > searchedValue)
-                {
-                    // recursive search call for left subarray
-                    return BinarySearch(array, searchedValue, first, middle - 1);
-                }
-                else
-                {
-                    // recursive search call for right subarray
-                    return BinarySearch(array, searchedValue, middle + 1, last);
-                }
-            }
-        }
-
         public static void BinarySearchMain()
         {
             Console.WriteLine("Binary search (recursive implementation)");
@@ -76,6 +43,39 @@ namespace Task_4.Tasks.Methods
                 }
             }
 
+        }
+
+        private static int BinarySearch(int[] array, int searchedValue, int first, int last)
+        {
+            // borders converge
+            if (first > last)
+            {
+                //value not found
+                return -1;
+            }
+
+            // average subarray index
+            var middle = (first + last) / 2;
+            // value in the middle of the subarray
+            var middleValue = array[middle];
+
+            if (middleValue == searchedValue)
+            {
+                return middle;
+            }
+            else
+            {
+                if (middleValue > searchedValue)
+                {
+                    // recursive search call for left subarray
+                    return BinarySearch(array, searchedValue, first, middle - 1);
+                }
+                else
+                {
+                    // recursive search call for right subarray
+                    return BinarySearch(array, searchedValue, middle + 1, last);
+                }
+            }
         }
 
     }

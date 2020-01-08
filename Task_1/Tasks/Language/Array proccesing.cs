@@ -5,6 +5,11 @@ namespace Task_1.Tasks.Language
     public class Array_proccesing
     {
 
+        public static void array_proccesing()
+        {
+            ArrayMain();
+        }
+
         private static void ArrayMain()
         {
             Array_proccesing array_Proccesing = new Array_proccesing();
@@ -80,11 +85,5 @@ namespace Task_1.Tasks.Language
             Console.WriteLine($"Max: {max}");
         }
 
-        public static void array_proccesing()
-        {
-
-            ArrayMain();
-
-        }
     }
 }

@@ -3,7 +3,7 @@
 namespace Task_2.Tasks.Polymorphism.Task2._7
 {
 
-    // Интерфейс графического редактора.
+    // UI Graphics editor.
     public class Vector_Graphics_Editor
     {
 
@@ -12,9 +12,10 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
 
             int n;
             double rot = 0;
-            // Это и есть полиморфизм когды мы можем рабоать используя базовый класс с наследником
+            // Это и есть полиморфизм когды мы можем работать используя базовый класс с наследником
             Shape[] shapes = new Shape[4];
 
+            #region shapesCycle
             //shapes[0] = new Rectangle(5, 10);
             //shapes[1] = new Line(15);
             //shapes[2] = new Circle(15);
@@ -24,6 +25,7 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
             //    item.Draw(5, 10);
             //    item.Area();
             //}
+            #endregion
 
             do
             {
@@ -40,9 +42,9 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
                         break;
                     }
 
-                    // Сделано примерно как в фотошопе, то есть у нас есть x,y это и есть координаты центра фигуры и место ее расположения на графике
-                    // Далее устанавливется вращение фигуры с помощью rotate, то есть куда и вкакую сторону она будет смотреть
-                    // Отслаьные свойства зависят от самих фигур
+                    // Made approximately as in Photoshop, that is, we have x, y this is the coordinates of the center of the figure and its location on the chart
+                    // Next, the rotation of the figure is set using rotate, that is, where and on which side it will look
+                    // Other properties depend on the shapes themselves
                     Console.WriteLine("Enter coordinates for draw your shape");
                     Console.Write("\nEnter x: ");
                     var x = int.Parse(Console.ReadLine());

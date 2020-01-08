@@ -12,11 +12,6 @@ namespace Task_4.Tasks.Methods
     public class Linear_Search
     {
 
-        private static bool IsPositive(int value)
-        {
-            return value > 0;
-        }
-
         public static Operation operation = delegate (int value)
         {
             return value > 0;
@@ -162,5 +157,11 @@ namespace Task_4.Tasks.Methods
             Console.WriteLine($"5 - Method\nNumber of array positive : {countElements.Count} for replay {countReplay}\nmSec for average: {averageSearch.Average()}");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
+
+        private static bool IsPositive(int value)
+        {
+            return value > 0;
+        }
+
     }
 }

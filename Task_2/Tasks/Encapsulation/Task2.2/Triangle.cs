@@ -6,6 +6,16 @@ namespace Task_2.Tasks.Encapsulation.Task2._2
     {
 
         private double a;
+        private double b;
+        private double c;
+
+        public Triangle(double a, double b, double c)
+        {
+            A = a;
+            B = b;
+            C = c;
+        }
+
         public double A
         {
             get
@@ -26,7 +36,6 @@ namespace Task_2.Tasks.Encapsulation.Task2._2
             }
         }
 
-        private double b;
         public double B
         {
             get
@@ -47,7 +56,6 @@ namespace Task_2.Tasks.Encapsulation.Task2._2
             }
         }
 
-        private double c;
         public double C
         {
             get
@@ -79,11 +87,5 @@ namespace Task_2.Tasks.Encapsulation.Task2._2
             return 0.5 * a * ( (2*Math.Sqrt(p*(p - a) * (p - b) * (p - c)))/a );
         }
 
-        public Triangle(double a, double b, double c)
-        {
-            A = a;
-            B = b;
-            C = c;
-        }
     }
 }

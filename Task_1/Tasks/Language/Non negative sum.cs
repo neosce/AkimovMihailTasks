@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Task_1.Tasks.Language
 {
     public class Non_negative_sum
     {
+
+        public static void non_negative_sum()
+        {
+            ArrayMain();
+        }
 
         private static void ArrayMain()
         {
@@ -56,11 +57,5 @@ namespace Task_1.Tasks.Language
             Console.WriteLine($"Sum: {max}");
         }
 
-        public static void non_negative_sum()
-        {
-
-            ArrayMain();
-
-        }
     }
 }

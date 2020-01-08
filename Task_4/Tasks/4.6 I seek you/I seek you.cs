@@ -5,12 +5,6 @@ namespace Task_4.Tasks._4._6_I_seek_you
 {
     public class I_seek_you
     {
-        private static int SizeArray()
-        {
-            Random random = new Random();
-            var elements = random.Next(15000,30000);
-            return elements;
-        }
 
         public static void ISeekYouMain()
         {
@@ -48,5 +42,13 @@ namespace Task_4.Tasks._4._6_I_seek_you
                 Console.WriteLine("Algorithm crash...");
             }
         }
+
+        private static int SizeArray()
+        {
+            Random random = new Random();
+            var elements = random.Next(15000, 30000);
+            return elements;
+        }
+
     }
 }

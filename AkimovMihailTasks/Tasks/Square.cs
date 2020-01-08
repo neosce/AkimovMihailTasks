@@ -5,6 +5,18 @@ namespace AkimovMihailTasks.Tasks
     public class Square
     {
 
+        public static void SquareTask()
+        {
+            int N;
+            Square square = new Square();
+
+            Console.WriteLine("Insert the number N:");
+            N = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Square:\n");
+            square.StarSquare(N);
+        }
+
         private void StarSquare(int N)
         {
             int empty, counter=0;
@@ -37,16 +49,5 @@ namespace AkimovMihailTasks.Tasks
             }
         }
 
-        public static void SquareTask()
-        {
-            int N;
-            Square square = new Square();
-
-            Console.WriteLine("Insert the number N:");
-            N = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Square:\n");
-            square.StarSquare(N);
-        }
     }
 }

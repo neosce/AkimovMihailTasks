@@ -4,12 +4,13 @@ namespace Task_2.Tasks.Polymorphism.Task2._8
 {
     public class NPC: Unit
     {
-        public int HealthNPC { get; set; }
 
         public NPC(int healthNPC)
         {
             HealthNPC = healthNPC;
         }
+
+        public int HealthNPC { get; set; }
 
         public void AlgorithmPath()
         {

@@ -5,6 +5,17 @@ namespace AkimovMihailTasks.Tasks
     public class Array
     {
 
+        public static void ArrayTask()
+        {
+            int N;
+            Array array = new Array();
+
+            Console.WriteLine("Enter general array dimension N:");
+            N = Convert.ToInt32(Console.ReadLine());
+
+            array.ArrayMain(N);
+        }
+
         private void ArrayMain(int N)
         {
             int count = 1;
@@ -134,17 +145,6 @@ namespace AkimovMihailTasks.Tasks
                 Console.Write("}, ");
             }
             Console.Write("}");
-        }
-
-        public static void ArrayTask()
-        {
-            int N;
-            Array array = new Array();
-
-            Console.WriteLine("Enter general array dimension N:");
-            N = Convert.ToInt32(Console.ReadLine());
-
-            array.ArrayMain(N);
         }
 
     }

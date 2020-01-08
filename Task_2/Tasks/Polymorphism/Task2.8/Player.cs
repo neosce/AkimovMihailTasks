@@ -5,12 +5,12 @@ namespace Task_2.Tasks.Polymorphism.Task2._8
     public class Player : Unit
     {
 
-        public int HealthPlayer { get; set; }
-
         public Player(int healthPlayer)
         {
             HealthPlayer = healthPlayer;
         }
+
+        public int HealthPlayer { get; set; }
 
         public override int Move(int speed)
         {

@@ -4,6 +4,18 @@ namespace Task_1.Tasks.String
 {
     public class Char_doubler
     {
+        public static void char_doubler()
+        {
+            Console.WriteLine("Input one string: ");
+            var str1 = Console.ReadLine();
+
+            Console.WriteLine("Input two string: ");
+            var str2 = Console.ReadLine();
+
+            doubler(str1, str2);
+
+            Console.WriteLine();
+        }
 
         private static void doubler(string str1, string str2)
         {
@@ -24,17 +36,5 @@ namespace Task_1.Tasks.String
             Console.WriteLine($"Result string: {strNew}");
         }
 
-        public static void char_doubler()
-        {
-            Console.WriteLine("Input one string: ");
-            var str1 = Console.ReadLine();
-
-            Console.WriteLine("Input two string: ");
-            var str2 = Console.ReadLine();
-
-            doubler(str1, str2);
-
-            Console.WriteLine();
-        }
     }
 }

@@ -5,6 +5,11 @@ namespace Task_1.Tasks.Language
     public class _2D_Array
     {
 
+        public static void _2dArray()
+        {
+            ArrayMain();
+        }
+
         private static void ArrayMain()
         {
             int[,] array2d = new int[3,3];
@@ -54,11 +59,5 @@ namespace Task_1.Tasks.Language
             Console.WriteLine($"Sum: {sum}");
         }
 
-        public static void _2dArray()
-        {
-
-            ArrayMain();
-
-        }
     }
 }

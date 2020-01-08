@@ -14,6 +14,13 @@ namespace Task_1.Tasks.Basic
     public class Font_Adjustment
     {
 
+        public static void font_adjustment()
+        {
+            format_change();
+
+            Console.WriteLine();
+        }
+
         private static void format_change()
         {
 
@@ -28,15 +35,6 @@ namespace Task_1.Tasks.Basic
                 {
                     fontStyle = FontStyle.none;
                 }
-
-                //Not working
-                //foreach (FontStyle isChek in Enum.GetValues(typeof(FontStyle)))
-                //{
-                //    if (fontStyle.HasFlag(isChek))
-                //    {
-                //        fontStyle = FontStyle.none;
-                //    }
-                //}
 
                 Console.WriteLine($"Параметры надписи: {fontStyle}");
                 Console.WriteLine("Введите:\n" + "1: Bold\n2: italic\n3: underline\n0: Exit");
@@ -76,8 +74,8 @@ namespace Task_1.Tasks.Basic
                         fontStyle ^= FontStyle.inderline;
                     }
                 }
-                // Не понимаю почему если у fontstyle сбросить все значения то у него 0
-                // Приходится делать костыль
+                // I don’t understand why if fontstyle resets all values, then it has 0
+                // I have to make a crutch
                 if (fontStyle == 0)
                 {
                     Console.WriteLine("None");
@@ -93,12 +91,5 @@ namespace Task_1.Tasks.Basic
             Console.WriteLine();
         }
 
-        public static void font_adjustment()
-        {
-
-            format_change();
-
-            Console.WriteLine();
-        }
     }
 }

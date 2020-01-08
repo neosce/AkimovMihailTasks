@@ -6,6 +6,14 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
     {
 
         private double radius;
+        private double innerRadius;
+
+        public Ring(double radius, double innerRadius) : base("Ring")
+        {
+            this.radius = radius;
+            this.innerRadius = innerRadius;
+        }
+
         public double Radius
         {
             get
@@ -26,7 +34,6 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
             }
         }
 
-        private double innerRadius;
         public double InnerRadius
         {
             get
@@ -45,12 +52,6 @@ namespace Task_2.Tasks.Polymorphism.Task2._7
                     innerRadius = 0.5;
                 }
             }
-        }
-
-        public Ring(double radius, double innerRadius) : base("Ring")
-        {
-            this.radius = radius;
-            this.innerRadius = innerRadius;
         }
 
         public override void Draw(double x, double y)

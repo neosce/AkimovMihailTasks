@@ -15,6 +15,42 @@ namespace Task_4.Tasks._4._3_Sorting_Unit
             EventSortEnd.Invoke();
         }
 
+        public static void SortingUnitMain()
+        {
+            bool j = InputQ();
+
+            // Create new Theard
+            var thread = new Thread(new ThreadStart(FuncTheard));
+
+            Console.WriteLine("ID Primary thread: {0}\n", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Start new thread...");
+
+            thread.Start();
+            Console.WriteLine(Thread.CurrentThread.GetHashCode());
+
+            if (j)
+            {
+                Console.WriteLine("Thread block");
+                thread.Join(); //TODO Bind to a button
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Thread not blocked");
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            Thread.Sleep(300);
+            Methods.PrintArray<int> printArray = new Methods.PrintArray<int>();
+            printArray.Print_Array(array, "Thread sort");
+            // Событие
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("\nPrimary thread ended!");
+        }
+
         static private void HandlerStop()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -68,42 +104,6 @@ namespace Task_4.Tasks._4._3_Sorting_Unit
                 Console.WriteLine("Input error...");
                 return false;
             }
-        }
-
-        public static void SortingUnitMain()
-        {
-            bool j = InputQ();
-            
-            // Create new Theard
-            var thread = new Thread(new ThreadStart(FuncTheard));
-            
-            Console.WriteLine("ID Primary thread: {0}\n", Thread.CurrentThread.ManagedThreadId);
-            Console.WriteLine("Start new thread...");
-
-            thread.Start();
-            Console.WriteLine(Thread.CurrentThread.GetHashCode());
-
-            if (j)
-            {
-                Console.WriteLine("Thread block");
-                thread.Join(); //TODO Bind to a button
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Thread not blocked");
-                Console.ForegroundColor = ConsoleColor.Gray;
-            }
-            
-            Console.ForegroundColor = ConsoleColor.Green;
-
-            Thread.Sleep(300);
-            Methods.PrintArray<int> printArray = new Methods.PrintArray<int>();
-            printArray.Print_Array(array, "Thread sort");
-            // Событие
-
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("\nPrimary thread ended!");
         }
 
     }
