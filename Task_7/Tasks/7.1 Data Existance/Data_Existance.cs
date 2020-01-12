@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Task_7.Tasks._7._1_Data_Existance
 {
@@ -14,6 +10,9 @@ namespace Task_7.Tasks._7._1_Data_Existance
         {
             //[0-3][0-9]-[0|1][0-9]-(19|20)[0-9]{2}
             Regex regex = new Regex(@"[0-3][0-9]-[0|1][0-9]-[0-9]{3,}");
+            string textExapmle = "The Russian Federation arose 25-12-1991";
+
+            Console.WriteLine($"Example: {textExapmle}, Regex: {regex.IsMatch(textExapmle)}");
 
             Console.WriteLine("Enter text with data format dd-mm-yyyy: ");
             var text = Console.ReadLine();

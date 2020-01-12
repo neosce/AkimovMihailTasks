@@ -1,5 +1,9 @@
 ﻿using System;
 using Task_7.Tasks._7._1_Data_Existance;
+using Task_7.Tasks._7._2_Html_Replacer;
+using Task_7.Tasks._7._3_Email_Finder;
+using Task_7.Tasks._7._4_Number_Validator;
+using Task_7.Tasks._7._5_Time_Counter;
 
 namespace Task_7
 {
@@ -28,19 +32,19 @@ namespace Task_7
                             break;
                             
                         case 2:
-
+                            Html_Replacer.StartHtml();
                             break;
 
                         case 3:
-
+                            Email_Finder.StartEmail();
                             break;
 
                         case 4:
-
+                            Number_Validator.StartNumber();
                             break;
 
                         case 5:
-
+                            Time_Counter.StartTime();
                             break;
 
                         default:
