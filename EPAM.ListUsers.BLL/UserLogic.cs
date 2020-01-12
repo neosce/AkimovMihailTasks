@@ -25,6 +25,11 @@ namespace EPAM.ListUsers.BLL
             return _userDao.DeletedById(id);
         }
 
+        public string DeletedByIdAward(int idUser, int idAward)
+        {
+            return _userDao.DeletedByIdAward(idUser, idAward);
+        }
+
         public IEnumerable<User> GetAll()
         {
             return _userDao.GetAll();

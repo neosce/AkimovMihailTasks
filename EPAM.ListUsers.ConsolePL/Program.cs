@@ -10,16 +10,19 @@ namespace EPAM.ListUsers.ConsolePL
         {
 
             int n;
-            var logic = DependencyResolver.UserLogic;
+            var userLogic = DependencyResolver.UserLogic;
+            var awardLogic = DependencyResolver.AwardLogic;
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Epam - List Users Awards!");
             Console.ForegroundColor = ConsoleColor.Gray;
+            
+            AddController.StartCollection(userLogic, awardLogic); //Collection add fake db
 
             do
             {
 
-                Console.WriteLine("Select operating mode: \n1 - Add User and Award\n2 - Get All List\n3 - Deleted User by\n0 - EXIT ");
+                Console.WriteLine("Select operating mode: \n1 - Add User and Award\n2 - Get All List\n3 - Deleted User or Award\n0 - EXIT ");
 
                 var _numberList = Console.ReadLine();
                 Console.WriteLine();
@@ -29,13 +32,13 @@ namespace EPAM.ListUsers.ConsolePL
                     switch (n)
                     {
                         case 1:
-                            AddController.AddCollection(logic);
+                            AddController.AddCollection(userLogic, awardLogic);
                             break;
                         case 2:
-                            GetAllController.GetAllCollection(logic);
+                            GetAllController.GetAllCollection(userLogic, awardLogic);
                             break;
                         case 3:
-                            DeletedController.DeletedInCollection(logic);
+                            DeletedController.DeletedInCollection(userLogic);
                             break;
                         default:
                             n = 0;

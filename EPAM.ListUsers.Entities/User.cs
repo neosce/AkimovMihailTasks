@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace EPAM.ListUsers.Entities
 {
@@ -23,9 +25,11 @@ namespace EPAM.ListUsers.Entities
             }
         }
 
+        public List<int> userAward { get; set; }
+
         public override string ToString()
         {
-            return $"Id = {Id}\n Name: {Name}\n Age: {Age}\n Date Of Birthday - {DateOfBirthday.ToString("dd.MM.yyyy")}\n";
+            return $"Id = {Id}\n Name: {Name}\n Age: {Age}\n Date Of Birthday - {DateOfBirthday.ToString("dd.MM.yyyy")}";
         }
 
     }

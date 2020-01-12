@@ -23,6 +23,24 @@ namespace EPAM.ListUser.DAL.Memory
             return user;
         }
 
+        string IUserDao.DeletedByIdAward(int idUser, int idAward)
+        {
+            if (_user.ContainsKey(idUser))
+            {
+                _user.TryGetValue(idUser, out var user);
+
+                for (int i = 0; i < user.userAward.Count; i++)
+                {
+                    if (user.userAward[i] == idAward)
+                    {
+                        user.userAward.RemoveAt(i);
+                        return $"This is Award:{idAward} was deleted!";
+                    }
+                }
+            }
+            return $"This is Award:{idAward} missing or not added!";
+        }
+
         string IUserDao.DeletedById(int id)
         {
             if (_user.ContainsKey(id))
@@ -35,7 +53,6 @@ namespace EPAM.ListUser.DAL.Memory
             {
                 return $"This is id:{id} missing or not added!";
             }
-
         }
 
         IEnumerable<User> IUserDao.GetAll()
@@ -46,7 +63,7 @@ namespace EPAM.ListUser.DAL.Memory
         User IUserDao.GetById(int id)
         {
             _user.TryGetValue(id, out var user);
-
+            
             return user;
         }
     }
