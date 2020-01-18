@@ -1,0 +1,25 @@
+﻿body {
+    margin: 0;
+}
+.Menulist {
+    margin: 10px;
+    background: #e2edc1;
+    padding-left: 10px;
+    padding-right: 5px;
+    border: 1px double black;
+    border-radius: 10px;
+    box-shadow: 5px 5px red;
+    width: 200px;
+}
+ul {
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+li {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
