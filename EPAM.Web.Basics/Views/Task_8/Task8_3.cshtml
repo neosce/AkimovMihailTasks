@@ -1,0 +1,39 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DROPDOWN MENU</title>
+    <environment include="Development">
+        <link href="~/css/Task_8/Task8_3Style.css" rel="stylesheet" />
+    </environment>
+</head>
+<body>
+    <nav>
+        <ul class="topmenu">
+            <li class="down"><a class="atopmenu" href=""><u>Файл</u></a>
+                <ul class="submenu">
+                    <li><a href="">Новый</a></li>
+                    <li><a href="">Открыть</a></li>
+                    <li><a href="">Сохранить</a></li>
+                    <li><a href="">Закрыть</a></li>
+                </ul>
+            </li>
+            <li class="down"><a class="atopmenu" href=""><u>Правка</u></a>
+                <ul class="submenu">
+                    <li><a href="">Вырезать</a></li>
+                    <li><a href="">Копировать</a></li>
+                    <li><a href="">Вставить</a></li>
+                    <li><a href="">Удалить</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
