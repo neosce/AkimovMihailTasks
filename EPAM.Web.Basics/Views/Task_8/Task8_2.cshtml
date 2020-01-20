@@ -1,0 +1,33 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Task8_2</title>
+    <environment include="Development">
+        <link href="~/css/Task_8/Task8_2Style.css" rel="stylesheet" />
+    </environment>
+</head>
+<body>
+    <form class="formMain">
+        <p class="Registration">Регистрация</p>
+        <p class="lineWhite"></p>
+        <p>E-mail<br /><input type="text" name="name" size="15" maxlength="20" value=""></p>
+
+        <div class="stackDiv">
+            Пароль<br />
+            <input type="text" name="name" size="15" maxlength="20" value="">
+        </div>
+        <div class="stackDiv">
+            Ещё раз<br />
+            <input type="text" name="name" size="15" maxlength="20" value="">
+        </div>
+        <button>Отправить</button>
+    </form>
+</body>
+</html>

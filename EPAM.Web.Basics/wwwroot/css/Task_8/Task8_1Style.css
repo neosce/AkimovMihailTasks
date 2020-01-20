@@ -1,14 +1,17 @@
-﻿body {
-    margin: 0;
+﻿* {
+    box-sizing: border-box;
+}
+body {
+    margin: auto;
 }
 .Menulist {
     margin: 10px;
-    background: #e2edc1;
+    background: #f9e497;
     padding-left: 10px;
     padding-right: 5px;
     border: 1px double black;
     border-radius: 10px;
-    box-shadow: 5px 5px indianred;
+    box-shadow: 5px 5px #880000;
     width: 200px;
 }
 ul {
@@ -18,7 +21,7 @@ ul {
     margin-bottom: 1px;
 }
 li {
-    color: indianred;
+    color: #880000;
     list-style-type: none;
     margin-top: 10px;
     margin-bottom: 10px;

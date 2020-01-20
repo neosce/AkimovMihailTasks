@@ -1,0 +1,50 @@
+﻿* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+body {
+    margin: auto;
+}
+
+.formMain {
+    color: white;
+    background: #0690cf;
+    border: solid 5px #0075b2;
+    width: 400px;
+    height: 300px;
+}
+
+.Registration {
+    margin: 20px 10px 10px 20px ;
+    font-size: 28px;
+}
+
+.lineWhite {
+    margin: auto;
+    border-bottom: solid 1px white;
+}
+
+p {
+    margin-left: 7%;
+}
+
+.stackDiv {
+    width: 145px;
+    display: inline-block;
+    margin-left: 7%;
+}
+
+button {
+    margin-left: 7%;
+    margin-top: 50px;
+    border-style: none;
+    background-color: #ffdf7f;
+    font-size: 15px;
+    width: 100px;
+    height: 30px;
+}
+
+
+
