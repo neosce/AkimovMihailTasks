@@ -1,0 +1,35 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 55px;
+    background: #333333;
+}
+
+div {
+    position: relative;
+    background: #88b7d5;
+    height: 70px;
+    line-height: 55px;
+    color: white;
+    text-align: center;
+    border: 5px solid #ccedff;
+}
+
+    div::before, div::after {
+        content: '';
+        position: absolute;
+        left: 45%;
+        bottom: 100%;
+        border: 30px solid transparent;
+        border-bottom: 35px solid #ccedff;
+    }
+
+    div::after {
+        border: 30px solid transparent;
+        border-color: transparent transparent #88b7d5 transparent;
+        bottom: 90%;
+        left: 45%;
+    }
+    

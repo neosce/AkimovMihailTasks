@@ -38,5 +38,9 @@ namespace EPAM.Web.Basics.Controllers
             return View();
         }
 
+        public IActionResult Task8_4()
+        {
+            return View();
+        }
     }
 }
