@@ -1,0 +1,69 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 10px;
+    background: #333333;
+}
+
+.eq {
+    position: relative;
+    height: 238px;
+}
+    .eq::after {
+        content: "";
+        display: table;
+        clear: both;
+        
+    }
+    .eq div {
+        float: left;
+        position: absolute;
+        background: linear-gradient(to top, #ff8d02, #ffcd55);
+        width: 40px;
+        bottom: 0;
+        border-radius: 5px 5px 0 0;
+    }
+
+.lines {
+    position: absolute;
+    top: 30px;
+    width: 265px;
+}
+hr {
+    border: none;
+    background-color: #333333;
+    height: 2px;
+    margin: 0 0 22px 0;
+}
+
+.first {
+    height: 50%;
+    left: 0;
+}
+
+.second {
+    height: 70%;
+    left: 45px;
+}
+
+.third {
+    height: 20%;
+    left: 90px;
+}
+
+.fourth {
+    height: 30%;
+    left: 135px;
+}
+
+.fifth {
+    height: 60%;
+    left: 180px;
+}
+
+.sixth {
+    height: 100%;
+    left: 225px;
+}

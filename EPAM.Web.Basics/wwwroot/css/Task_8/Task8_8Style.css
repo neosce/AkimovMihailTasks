@@ -1,0 +1,38 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 10px 50px;
+    background: black;
+    font-family: sans-serif;
+}
+
+h1 {
+    margin-top: 5px;
+    color: #ffbc6a;
+}
+
+div {
+    width: 450px;
+    background: linear-gradient(to top, #dddddd, white);
+    border: 3px solid white;
+    padding: 3px 10px 5px 10px;
+    line-height: 22px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    z-index: -2;
+}
+
+p:before {
+    content: "";
+    width: 140px;
+    height: 45px;
+    position: absolute;
+    background: black;
+    top: -3px;
+    left: -15px;
+    transform: skew(-25deg);
+    z-index: -2;
+}
+

@@ -1,0 +1,22 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 10px;
+}
+
+.firstblock {
+    font-size: 20px;
+    background-color: #008b66;
+    color: white;
+    padding: 11px;
+}
+
+.secondblock {
+    background-color: #dfe6e1;
+    margin: -5px 0 0 35px;
+    padding: 11px;
+    border-left: solid 1px white;
+    border-top: solid 1px white;
+}
