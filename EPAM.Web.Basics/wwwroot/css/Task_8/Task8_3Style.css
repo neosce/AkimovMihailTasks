@@ -18,6 +18,12 @@ nav a {
     outline: none;
 }
 
+.down:hover {
+    border-top-right-radius: 5px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
 .topmenu {
     backface-visibility: hidden;
 }
