@@ -1,0 +1,42 @@
+﻿let btn = document.querySelector("#btn");
+let text = document.querySelector("#Text").value;
+
+function Calculate()
+{
+    let res = 0;
+    let math = [];
+    let stringMath = /\-?\d+(\.\d+)?|([\+\-\*\/\=]){1}/g;
+
+    math = text.match(stringMath);
+
+    if (parseFloat(math[0]))
+    {
+        res += math[0] * 1;
+    }
+
+    for (let i = 0; i < math.length; i++)
+    {
+        switch (math[i])
+        {
+            case "+":
+                res += math[i + 1] * 1;
+                break;
+            case "-":
+                res -= math[i + 1] * 1;
+                break;
+            case "*":
+                res *= math[i + 1] * 1;
+                break;
+            case "/":
+                res /= math[i + 1] * 1;
+                break;
+            default:
+                break;
+        }
+    }
+
+    document.querySelector("#Text").value = res.toFixed(2);
+
+}
+
+btn.onclick = Calculate;
