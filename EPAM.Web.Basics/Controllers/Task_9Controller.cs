@@ -23,5 +23,9 @@ namespace EPAM.Web.Basics.Controllers
             return View();
         }
 
+        public IActionResult Task9_3()
+        {
+            return View();
+        }
     }
 }

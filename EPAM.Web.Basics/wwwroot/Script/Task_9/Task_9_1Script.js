@@ -1,7 +1,8 @@
 ﻿let btn = document.querySelector("#btn");
-let text = document.querySelector("#Text1").value;
 
-function remover() {
+function remover()
+{
+    let text = document.querySelector("#Text1").value;
     var words = text.split(' ');
     var sep = ["?", "!", ":", ";", ",", "."];
     var res = [];
@@ -37,7 +38,6 @@ function wordsSplit(word)
         }
     }
     word = deleteEmpty(word);
-    //console.log(word);
     return word;
 }
 

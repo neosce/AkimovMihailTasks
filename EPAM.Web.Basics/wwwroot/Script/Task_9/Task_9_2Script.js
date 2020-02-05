@@ -1,8 +1,8 @@
 ﻿let btn = document.querySelector("#btn");
-let text = document.querySelector("#Text").value;
 
 function Calculate()
 {
+    let text = document.querySelector("#Text").value;
     let res = 0;
     let math = [];
     let stringMath = /\-?\d+(\.\d+)?|([\+\-\*\/\=]){1}/g;
@@ -35,7 +35,7 @@ function Calculate()
         }
     }
 
-    document.querySelector("#Text").value = res.toFixed(2);
+    document.querySelector("#Text").value = text += res.toFixed(2);
 
 }
 
