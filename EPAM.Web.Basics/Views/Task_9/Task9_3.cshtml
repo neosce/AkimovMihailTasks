@@ -9,30 +9,43 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <environment include="Development">
+        <link rel="stylesheet"  href="~/css/Task_9/Task9_3Style.css"/>
+    </environment>
     <title>Task9_3</title>
 </head>
 <body>
     <div class="div1">
-        <select class="selectControl-1" multiple="multiple" size="5">
-            <option>Option 1</option>
-            <option>Option 2</option>
-            <option>Option 3</option>
-            <option>Option 4</option>
-            <option>Option 5</option>
+        <select id="slct1" name="slct1" class="selectControl-1" multiple="multiple" size="5">
         </select>
     </div>
     <div class="div2">
-        <button>></button>
-        <br />
-        <button><</button>
-        <br />
-        <button>>></button>
-        <br />
-        <button><<</button>
+        <button id="btn1">></button>
+        <br>
+        <button id="btn2"><</button>
+        <br>
+        <button id="btnAll1">>></button>
+        <br>
+        <button id="btnAll2"><<</button>
     </div>
     <div class="div1">
-        <select class="selectControl-1" multiple="multiple" size="5">
+        <select id="slct2" name="slct2" class="selectControl-1" multiple="multiple" size="5">
         </select>
     </div>
+    <div class="div2">
+        <button id="btn3">></button>
+        <br>
+        <button id="btn4"><</button>
+        <br>
+        <button id="btnAll3">>></button>
+        <br>
+        <button id="btnAll4"><<</button>
+    </div>
+    <div class="div1">
+        <select id="slct3" name="slct3" class="selectControl-1" multiple="multiple" size="5">
+        </select>
+    </div>
+
+    <script src="~/Script/Task_9/Task_9_3Script.js"></script>
 </body>
 </html>
