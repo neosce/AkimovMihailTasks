@@ -66,6 +66,7 @@ function prevPage()
         else if (window.location.href == pageArr[0])
         {
             alert("This is main page!");
+            break;
         }
     }
 }
