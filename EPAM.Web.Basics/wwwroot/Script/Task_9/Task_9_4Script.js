@@ -7,7 +7,25 @@ let btnStart = document.querySelector("#start");
 let btnPrev = document.querySelector("#btn1");
 let btnNext = document.querySelector("#btn2");
 
-let pageArr = ["http://localhost:51809/Task_9/Task9_4", "http://localhost:51809/Task_9/Task9_4_1", "http://localhost:51809/Task_9/Task9_4_2"];
+let pageArr = [" /Task_9/Task9_4", " /Task_9/Task9_4_1", " /Task_9/Task9_4_2"];
+
+function getLocation()
+{
+    var exp = /\s/;
+
+    for (let i = 0; i < pageArr.length; i++)
+    {
+        var result = pageArr[i].split(exp);
+        pageArr[i] = window.location.origin.toString();
+
+        for (let j = 0; j < result.length; j++)
+        {
+            pageArr[i] += result[j];
+        }
+    }
+}
+
+getLocation(); 
 
 function timer()
 {
