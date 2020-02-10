@@ -28,6 +28,15 @@ button {
     width: 30px;
 }
 
+a {
+    text-decoration: none;
+    color: #f1f1ef;
+    background-color: #5e83ba;
+    border-radius: 10px;
+    padding: 0.1px 10px 0.1px 10px;
+    text-align: center;
+}
+
 #pageNum {
     position: absolute;
     top: 50%;
