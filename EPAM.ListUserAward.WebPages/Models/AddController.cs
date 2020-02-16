@@ -28,20 +28,20 @@ namespace EPAM.ListUserAward.WebPages.Models
             _ = userLogic.Add(new User()
             {
                 DateOfBirthday = DateTime.Parse("14.05.1995"),
-                Name = "Misha",
+                Name = "Nikola",
                 userAward = new List<int> { 1, 2 }
             });
 
             _ = userLogic.Add(new User()
             {
                 DateOfBirthday = DateTime.Parse("17.02.2005"),
-                Name = "Anton"
+                Name = "Slava"
             });
 
             _ = userLogic.Add(new User()
             {
                 DateOfBirthday = DateTime.Parse("01.03.1955"),
-                Name = "Victor",
+                Name = "Igor",
                 userAward = new List<int> { 1, 2 }
             });
 

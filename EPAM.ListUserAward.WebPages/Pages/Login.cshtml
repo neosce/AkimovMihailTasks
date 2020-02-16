@@ -1,13 +1,30 @@
 ﻿@using EPAM.ListUserAward.WebPages.Controller;
 @using EPAM.ListUser.Ioc;
 @{
+
     Layout = null;
     int _count = 1;
-    LoginController loginController = new LoginController();
 
-    loginController.ResponseUserList();
-    
+    LoginController loginController = new LoginController();
     var userLogic = DependencyResolver.UserLogic;
+    string email = null, pass = null;
+
+    email = Request["email"];
+    pass = Request["pass"];
+
+    if (IsPost && pass == "admin")
+    {
+
+        FormsAuthentication.SetAuthCookie(email, createPersistentCookie: true);
+
+        Response.Redirect("~");
+    }
+    else
+    {
+        loginController.ResponseUserList();
+    }
+
+    
 
 }
 
@@ -49,13 +66,13 @@
                     </table>
                 </div>
                 <!--2-->
-                <form class="login100-form validate-form">
+                <form action="~/Pages/Login" method="post" class="login100-form validate-form">
                     <span class="login100-form-title">
-                        Login to see Awards
+                        Log in to see Awards
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="Email">
+                        <input class="input100" type="text" name="email" id="email" placeholder="Email" value="@email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -63,7 +80,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Password">
+                        <input class="input100" type="password" name="pass" id="pass" placeholder="Password" value="@pass">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
@@ -71,18 +88,12 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
+                        <button class="login100-form-btn">Login</button>
                     </div>
 
                     <div class="text-center p-t-12">
-                        <span class="txt1">
-                            Forgot
-                        </span>
-                        <a class="txt2" href="#">
-                            Username / Password?
-                        </a>
+                        <span class="txt1">Forgot</span>
+                        <a class="txt2" href="#">Username / Password?</a>
                     </div>
 
                     <div class="text-center p-t-136">

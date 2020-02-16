@@ -45,7 +45,11 @@
         <div class="alert alert-danger">@errorMessage</div>
     }
     <div>
-
+        <div class="alert alert-dark">Email: @User.Identity.Name</div>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="alert alert-warning">Admin</div>
+        }
     </div>
     <form action="~/index.cshtml" method="post">
         <div>
@@ -70,14 +74,20 @@
     <button id="btn_increase" class="btn btn-secondary" style="width:250px">Count</button>
     <div class="alert alert-dark">Count: @Counter.Value</div>
 
+    <br />
+    <button id="btn_signout" class="btn btn-dark" style="width:250px">Sign out</button>
+
     <script src="~/Scripts/jquery-3.0.0.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/popper.js"></script>
 
     <script>
-        $('#btn_increase').click(function()
-        {
+        $('#btn_increase').click(function () {
             location.href = "/Pages/IncreaseCounter";
+        })
+
+        $('#btn_signout').click(function () {
+            location.href = "/Pages/SignOut";
         })
     </script>
 

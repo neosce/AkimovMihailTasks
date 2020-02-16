@@ -15,14 +15,29 @@ namespace EPAM.ListUser.DAL.Memory
 
         Award IAwardDao.Add(Award award)
         {
-            var lastId = _award.Keys.Count > 0
-                ? _award.Keys.Max()
-                : 0;
 
-            award.Id = lastId + 1;
+            int count = 0;
 
-            _award.Add(award.Id, award);
+            foreach (var pair in _award)
+            {
 
+                if (pair.Value.Title == award.Title)
+                {
+                    count++;
+                }
+            }
+            if (count == 0)
+            {
+                var lastId = _award.Keys.Count > 0
+                            ? _award.Keys.Max()
+                            : 0;
+
+                award.Id = lastId + 1;
+
+                _award.Add(award.Id, award);
+
+                return award;
+            }
             return award;
         }
 

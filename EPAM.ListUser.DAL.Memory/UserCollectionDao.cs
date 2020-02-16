@@ -12,14 +12,27 @@ namespace EPAM.ListUser.DAL.Memory
 
         User IUserDao.Add(User user)
         {
-            var lastId = _user.Keys.Count > 0
-                ? _user.Keys.Max()
-                : 0;
+            int count = 0;
+            
+            foreach (var pair in _user)
+            {
+                if(pair.Value.Name == user.Name)
+                {
+                    count++;
+                }
+            }
+            if (count == 0)
+            {
+                var lastId = _user.Keys.Count > 0
+                        ? _user.Keys.Max()
+                        : 0;
 
-            user.Id = lastId + 1;
+                user.Id = lastId + 1;
 
-            _user.Add(user.Id, user);
+                _user.Add(user.Id, user);
 
+                return user;
+            }
             return user;
         }
 

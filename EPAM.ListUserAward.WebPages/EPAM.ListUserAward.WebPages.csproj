@@ -124,6 +124,7 @@
     <Content Include="wwwroot\css\Login2Style.css" />
     <Content Include="wwwroot\css\LoginStyle.css" />
     <Content Include="wwwroot\Script\LoginScript.js" />
+    <Content Include="Pages\SignOut.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -216,6 +217,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Models\AddController.cs" />
     <Compile Include="Models\Counter.cs" />
+    <Compile Include="Models\MyRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
