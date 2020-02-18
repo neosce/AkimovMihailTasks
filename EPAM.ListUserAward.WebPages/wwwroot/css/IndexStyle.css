@@ -45,6 +45,14 @@ body {
      max-width: 785px;
  }
 
+.my-3 {
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+h3 {
+    color: white;
+}
+
 .media text-muted pt-3 {
     width: 100%;
 }

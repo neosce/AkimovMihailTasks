@@ -9,6 +9,8 @@ namespace EPAM.ListUserAward.WebPages.Models
     public class MyRoleProvider : RoleProvider
     {
 
+        private AuthModel _authModel = new AuthModel();
+
         public override bool IsUserInRole(string username, string roleName)
         {
             
@@ -21,11 +23,15 @@ namespace EPAM.ListUserAward.WebPages.Models
         {
             if (username == "Misha@mail.com")
             {
-                return new string[] { "SuperAdmin", "Admin", "User" };
+                return new string[] { "SuperAdmin" };
+            } 
+            else if (_authModel.GetByEmail(username).UserRights == "Admin")
+            {
+                return new string[] { "Admin" };
             }
             else
             {
-                return new string[] { };
+                return new string[] { "User" };
             }
         }
 

@@ -87,7 +87,7 @@
         {
             <div aria-live="polite" data-autohide="true" aria-atomic="true" style="position: relative;">
                 <div class="toast" style="position: absolute; top: 100px; right: 50px; box-shadow: 0 0 15px rgba(0,0,0,0.3);">
-                    <div class="toast-header" style="width: 300px;">
+                    <div class="toast-header" style="width: 350px;">
                         <img src="..." class="rounded mr-2" alt="...">
                         <strong class="mr-auto">Hello! @User.Identity.Name</strong>
                         <small>1 sec ago</small>
@@ -129,8 +129,10 @@
     <button id="btn_signout" class="btn btn-dark" style="width:250px">Sign out</button>
 
     <main role="main" class="container">
+        <div class="my-3 p-3 bg-dark rounded box-shadow">
+            <h3 class="text-center">Table user-award</h3>
+        </div>
         <div class="my-3 p-3 bg-white rounded box-shadow">
-            <h6 class="border-bottom border-gray pb-2 mb-0">Table user-award</h6>
             <div class="media text-muted pt-3 border-bottom border-gray">
                 <table class="table table-hover">
                     <thead>
@@ -144,27 +146,27 @@
                     <tbody>
                         @foreach (var user in userLogic.GetAll())
                         {
-                        <tr>
-                            <td>@(_count++)</td>
-                            <td>@user.Name</td>
-                            <td>@user.Age</td>
-                            <td>
-                                @if (user.userAward != null)
-                                {
-                                    foreach (var awardUser in user.userAward)
+                            <tr>
+                                <td>@(_count++)</td>
+                                <td>@user.Name</td>
+                                <td>@user.Age</td>
+                                <td>
+                                    @if (user.userAward != null)
                                     {
-                                        foreach (var award in awardLogic.GetAll())
+                                        foreach (var awardUser in user.userAward)
                                         {
-                                            if (awardUser == award.Id)
+                                            foreach (var award in awardLogic.GetAll())
                                             {
-                                                @award.Title<br />
+                                                if (awardUser == award.Id)
+                                                {
+                                                    @award.Title<br />
 
+                                                }
                                             }
                                         }
                                     }
-                                }
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>
