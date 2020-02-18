@@ -11,8 +11,9 @@ namespace EPAM.ListUserAward.WebPages.Models
 
         public override bool IsUserInRole(string username, string roleName)
         {
-            // Do Dictionary<username, roleName> users!
-            return (username == "Misha@mail.com" && roleName == "admin") ||
+            
+
+            return (username == "Misha@mail.com" && roleName == "SuperAdmin") ||
                 (username == "Misha@mail.com" && roleName == "User");
         }
 
@@ -20,7 +21,7 @@ namespace EPAM.ListUserAward.WebPages.Models
         {
             if (username == "Misha@mail.com")
             {
-                return new string[] { "Admin", "User" };
+                return new string[] { "SuperAdmin", "Admin", "User" };
             }
             else
             {

@@ -60,4 +60,30 @@
 
         $(thisAlert).removeClass('alert-validate');
     }
+
+    let check = true;
+    $('#CreateAccount').click(function ()
+    {
+        if (check)
+        {
+            $('<div id="wrapTel" class="wrap-input100 validate-input" data-validate="Your telephone"><input class="input100" type="tel" name="tel" id="tel" placeholder="tel" value="@tel"><span class="focus-input100"></span></div>').insertAfter('#passBlock');
+            check = false;
+        }
+        else
+        {
+            $('#wrapTel').detach();
+            check = true;
+        }
+    })
+
+    $('.toast').toast(
+        {
+            animation: true,
+            autohide: true,
+            delay: 5000
+        })
+    $('.toast').toast('show');
+
 })(jQuery);
+
+

@@ -121,6 +121,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Pages\IncreaseCounter.cshtml" />
     <Content Include="Pages\Login.cshtml" />
+    <Content Include="wwwroot\css\IndexStyle.css" />
     <Content Include="wwwroot\css\Login2Style.css" />
     <Content Include="wwwroot\css\LoginStyle.css" />
     <Content Include="wwwroot\Script\LoginScript.js" />
@@ -214,8 +215,10 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\UserAuth.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Models\AddController.cs" />
+    <Compile Include="Models\AuthModel.cs" />
     <Compile Include="Models\Counter.cs" />
     <Compile Include="Models\MyRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
