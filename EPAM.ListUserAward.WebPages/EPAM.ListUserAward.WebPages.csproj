@@ -124,8 +124,11 @@
     <Content Include="wwwroot\css\IndexStyle.css" />
     <Content Include="wwwroot\css\Login2Style.css" />
     <Content Include="wwwroot\css\LoginStyle.css" />
+    <Content Include="wwwroot\pic\Index\check_circle-24px.svg" />
+    <Content Include="wwwroot\pic\Login\warning-24px.svg" />
     <Content Include="wwwroot\Script\LoginScript.js" />
     <Content Include="Pages\SignOut.cshtml" />
+    <Content Include="Pages\AdminPanel.cshtml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />

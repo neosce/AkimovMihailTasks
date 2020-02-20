@@ -1,0 +1,356 @@
+﻿@using EPAM.ListUserAward.WebPages.Models;
+@using EPAM.ListUserAward.WebPages.Controller;
+@using EPAM.ListUser.Ioc;
+@{
+    Layout = null;
+
+    if (User.IsInRole("User"))
+    {
+        Response.Redirect("~/");
+    }
+
+    string resultUser = null;
+    string resultEmail = null;
+
+    int _count = 1;
+    bool hideModalShow = true;
+    bool hideModalEmailShow = true;
+
+    List<int> _listAwardUser = new List<int>();
+
+    LoginController loginController = new LoginController();
+    var userLogic = DependencyResolver.UserLogic;
+    var awardLogic = DependencyResolver.AwardLogic;
+    var _authModel = new AuthModel();
+    var messageRole = "";
+
+    foreach (var authEmail in _authModel.GetAll())
+    {
+        if (authEmail.Email == User.Identity.Name)
+        {
+            messageRole = authEmail.UserRights;
+        }
+    }
+
+    if (IsPost)
+    {
+        if (Request["id"] != null)
+        {
+            foreach (var userPost in userLogic.GetAll())
+            {
+                if (double.Parse(Request["id"]) == userPost.Id)
+                {
+                    resultUser = userPost.Name;
+                    hideModalShow = false;
+                }
+            }
+        }
+        else
+        {
+            foreach (var itemEmailPost in _authModel.GetAll())
+            {
+                if (double.Parse(Request["idEmail"]) == itemEmailPost.Id)
+                {
+                    resultEmail = itemEmailPost.Email;
+                    hideModalEmailShow = false;
+                }
+            }
+        }
+
+
+    }
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/wwwroot/css/IndexStyle.css" rel="stylesheet" />
+    <title>UserAward: admin panel</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="~/index">
+            <img class="imgLogo" src="https://www.bloomreach.com/binaries/ninecolumn/content/gallery/bloomreach.com_2/partners/solution-partners/epam_logo_full_color_rgb.png" width="80" height="30" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-list-4">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @User.Identity.Name
+                        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @*<a class="dropdown-item" href="#">Dashboard</a>*@
+                        <a class="dropdown-item" href="#">Edit picture</a>
+                        <a id="btn_logOut" class="dropdown-item" href="#">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <div aria-live="polite" data-autohide="true" aria-atomic="true" style="position: relative;">
+            <div class="toast" style="position: absolute; top: 100px; right: 50px; box-shadow: 0 0 15px rgba(0,0,0,0.3);">
+                <div class="toast-header" style="width: 350px;">
+                    <img src="~/wwwroot/pic/Index/check_circle-24px.svg" class="rounded mr-2" alt="check">
+                    <strong class="mr-auto">Hello! @User.Identity.Name</strong>
+                    <small>1 sec ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body" style="color: white; background-color: #83d1db;">
+                    @messageRole
+                </div>
+            </div>
+        </div>
+    </div>
+    <main role="main" class="container">
+        <div class="my-3 p-3 bg-dark rounded box-shadow">
+            <h3 class="text-center">Table user-award</h3>
+        </div>
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="media text-muted pt-3 border-bottom border-gray">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Award</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{_count = 1;}
+                        @foreach (var user in userLogic.GetAll())
+                        {
+                            <tr>
+                                <td>@(_count++)</td>
+                                <td>@user.Id</td>
+                                <td>@user.Name</td>
+                                <td>@user.Age</td>
+                                <td>
+                                    @if (user.userAward != null)
+                                    {
+                                        foreach (var awardUser in user.userAward)
+                                        {
+                                            foreach (var award in awardLogic.GetAll())
+                                            {
+                                                if (awardUser == award.Id)
+                                                {
+                                                    @award.Title<br />
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    <form action="~/Pages/AdminPanel.cshtml" method="post">
+                                        <input class="form-control" type="hidden" name="id" value="@user.Id" style="width:0px" />
+                                        <button class="btn btn-primary">Edit</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <small class="d-block text-right mt-3">
+                <a href="~/Pages/AdminPanel">All updates</a>
+            </small>
+        </div>
+        <div class="my-3 p-3 bg-dark rounded box-shadow">
+            <h3 class="text-center">Table user/admin</h3>
+        </div>
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="media text-muted pt-3 border-bottom border-gray">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Telephone</th>
+                            <th>UserRights</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{_count = 1;}
+                        @foreach (var user in _authModel.GetAll().Skip(1))
+                        {
+                            <tr>
+                                <td>@(_count++)</td>
+                                <td>@user.Id</td>
+                                <td>@user.Email</td>
+                                <td>@user.Password</td>
+                                <td>@user.Telephone</td>
+                                <td>@user.UserRights</td>
+                                <td>
+                                    <form action="~/Pages/AdminPanel.cshtml" method="post">
+                                        <input class="form-control" type="hidden" name="idEmail" value="@user.Id" style="width:0px" />
+                                        <button class="btn btn-primary">Edit</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <small class="d-block text-right mt-3">
+                <a href="~/Pages/AdminPanel">All updates</a>
+            </small>
+        </div>
+        <!-- ModalUser -->
+        @if (!hideModalShow)
+        {
+            <div class="modal" id="myModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Edit user-award</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @resultUser
+                            <table class="table table-hover" cellspacing="0">
+                                @foreach (var user in userLogic.GetAll())
+                                {
+                                    if (user.Name == resultUser)
+                                    {
+                                        <tr>
+                                            <td>Name user</td>
+                                            <td><input type="text" name="UserName" value="@user.Name" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Format date: "01.01.1111"</td>
+                                            <td><input type="text" name="UserDateOfBirthday" value="@user.DateOfBirthday" /></td>
+                                        </tr>
+                                    }
+                                }
+
+                                <tr>
+                                    <td>Award</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect2">Select award</label>
+                                            <select multiple class="form-control" id="exampleFormControlSelect2">
+                                                @foreach (var user in userLogic.GetAll())
+                                                {
+                                                    if (user.Name == resultUser)
+                                                    {
+                                                        if (user.userAward != null)
+                                                        {
+                                                            foreach (var awardUser in user.userAward)
+                                                            {
+                                                                foreach (var award in awardLogic.GetAll())
+                                                                {
+                                                                    if (awardUser == award.Id)
+                                                                    {
+                                                                        <option>@award.Title</option>
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- ModalEmail -->
+        @if (!hideModalEmailShow)
+        {
+            <div class="modal" id="myModalEmail" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Edit admin</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @resultEmail
+                            <table class="table table-hover" cellspacing="0">
+                                @foreach (var userSite in _authModel.GetAll())
+                                {
+                                    if (userSite.Email == resultEmail)
+                                    {
+                                        <tr>
+                                            <td>Email user</td>
+                                            <td><input type="text" name="UserEmail" value="@userSite.Email" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Password</td>
+                                            <td><input type="text" name="UserPassword" value="@userSite.Password" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Telephone</td>
+                                            <td><input type="text" name="UserTelephone" value="@userSite.Telephone" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>UserRights</td>
+                                            <td><input type="text" name="UserRights" value="@userSite.UserRights" /></td>
+                                        </tr>
+                                    }
+                                }
+
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </main>
+
+<script src="~/Scripts/jquery-3.0.0.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/popper.js"></script>
+
+<script>
+    $('#btn_logOut').click(function () {
+        location.href = "/Pages/SignOut";
+    })
+
+    $('#myModal').modal('show');
+    $('#myModalEmail').modal('show');
+
+    $('.toast').toast(
+        {
+            animation: true,
+            autohide: true,
+            delay: 5000
+        })
+    $('.toast').toast('show');
+</script>
+</body>
+</html>

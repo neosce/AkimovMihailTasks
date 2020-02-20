@@ -66,8 +66,9 @@
     {
         if (check)
         {
-            $('<div id="wrapTel" class="wrap-input100 validate-input" data-validate="Your telephone"><input class="input100" type="tel" name="tel" id="tel" placeholder="tel" value="@tel"><span class="focus-input100"></span></div>').insertAfter('#passBlock');
+            $('<div id="wrapTel" class="wrap-input100 validate-input" data-validate="Your telephone"><input class="input100" type="tel" name="tel" id="tel" placeholder="Telephone" value="@tel"><span class="focus-input100"></span></div>').insertAfter('#passBlock');
             check = false;
+            $('#tel').val("");
         }
         else
         {
