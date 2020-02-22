@@ -1,6 +1,7 @@
 ﻿@using EPAM.ListUserAward.WebPages.Models;
 @using EPAM.ListUserAward.WebPages.Controller;
 @using EPAM.ListUser.Ioc;
+@using EPAM.ListUsers.Entities;
 @{
     Layout = null;
 
@@ -11,10 +12,13 @@
 
     string resultUser = null;
     string resultEmail = null;
+    string nameAddUser = null;
+    string dobAddUser = null;
 
     int _count = 1;
     bool hideModalShow = true;
     bool hideModalEmailShow = true;
+    bool hideMoadlAddUserShow = true;
 
     List<int> _listAwardUser = new List<int>();
 
@@ -45,7 +49,11 @@
                 }
             }
         }
-        else
+        else if (Request["idDelete"] != null)
+        {
+            userLogic.DeletedById(int.Parse(Request["idDelete"]));
+        }
+        else if (Request["idEmail"] != null)
         {
             foreach (var itemEmailPost in _authModel.GetAll())
             {
@@ -55,6 +63,37 @@
                     hideModalEmailShow = false;
                 }
             }
+        }
+        else if (Request["idAddUser"] != null)
+        {
+            hideMoadlAddUserShow = false;
+        }
+        //TODO: Combine in once method!
+        else if (Request["nameAddUser"] != null && Request["dobAddUser"] != null)
+        {
+            var addUser = userLogic.Add(new User());
+
+            addUser.Name = Request["nameAddUser"];
+            addUser.DateOfBirthday = DateTime.Parse(Request["dobAddUser"]);
+
+            if (Request["idSelectAwardAddUser"] != "none")
+            {
+                addUser.userAward = new List<int>() { int.Parse(Request["idSelectAwardAddUser"]) };
+            }
+        }
+        else if (Request["UserNameEdit"] != null && Request["UserDateOfBirthdayEdit"] != null)
+        {
+            _ = userLogic.Add(new User() 
+            {
+                Name = Request["UserNameEdit"],
+                DateOfBirthday = DateTime.Parse(Request["UserDateOfBirthdayEdit"])
+            });
+
+
+            //if (Request["idSelectAwardAddUser"] != "none")
+            //{
+            //    addUser.userAward = new List<int>() { int.Parse(Request["idSelectAwardAddUser"]) };
+            //}
         }
 
 
@@ -127,6 +166,7 @@
                             <th>Age</th>
                             <th>Award</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -160,6 +200,73 @@
                                         <button class="btn btn-primary">Edit</button>
                                     </form>
                                 </td>
+                                <td>
+                                    <form action="~/Pages/AdminPanel.cshtml" method="post">
+                                        <input class="form-control" type="hidden" name="idDelete" value="@user.Id" style="width:0px" />
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                                <form action="~/Pages/AdminPanel.cshtml" method="post">
+                                    <input class="form-control" type="hidden" name="idAddUser" value="1" style="width:0px" />
+                                    <button class="btn btn-success">Add</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <small class="d-block text-right mt-3">
+                <a href="~/Pages/AdminPanel">All updates</a>
+            </small>
+        </div>
+        <div class="my-3 p-3 bg-dark rounded box-shadow">
+            <h3 class="text-center">Table award-user</h3>
+        </div>
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="media text-muted pt-3 border-bottom border-gray">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{_count = 1;}
+                        @foreach (var award in awardLogic.GetAll())
+                        {
+                            <tr>
+                                <td>@(_count++)</td>
+                                <td>@award.Id</td>
+                                <td>@award.Title</td>
+                                <td>
+                                    @foreach (var user in userLogic.GetAll())
+                                    {
+                                        if (user.userAward != null)
+                                        {
+                                            foreach (var awardUser in user.userAward)
+                                            {
+                                                if (awardUser == award.Id)
+                                                {
+                                                    @user.Name<br />
+                                                }
+                                            }
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    <form action="~/Pages/AdminPanel.cshtml" method="post">
+                                        <input class="form-control" type="hidden" name="id" value="@award.Id" style="width:0px" />
+                                        <button class="btn btn-primary">Edit</button>
+                                    </form>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -169,7 +276,7 @@
                 <a href="~/Pages/AdminPanel">All updates</a>
             </small>
         </div>
-        <div class="my-3 p-3 bg-dark rounded box-shadow">
+        <div class="my-3 p-3 bg-success rounded box-shadow">
             <h3 class="text-center">Table user/admin</h3>
         </div>
         <div class="my-3 p-3 bg-white rounded box-shadow">
@@ -218,65 +325,65 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Edit user-award</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Edit @resultUser</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            @resultUser
-                            <table class="table table-hover" cellspacing="0">
-                                @foreach (var user in userLogic.GetAll())
-                                {
-                                    if (user.Name == resultUser)
+                        <form action="~/Pages/AdminPanel.cshtml" method="post">
+                            <div class="modal-body">
+                                <table class="table table-hover" cellspacing="0">
+                                    @foreach (var user in userLogic.GetAll())
                                     {
-                                        <tr>
-                                            <td>Name user</td>
-                                            <td><input type="text" name="UserName" value="@user.Name" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Format date: "01.01.1111"</td>
-                                            <td><input type="text" name="UserDateOfBirthday" value="@user.DateOfBirthday" /></td>
-                                        </tr>
+                                        if (user.Name == resultUser)
+                                        {
+                                            <tr>
+                                                <td>Name user</td>
+                                                <td><input type="text" name="UserNameEdit" value="@user.Name" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Format date: "01.01.1111"</td>
+                                                <td><input type="text" name="UserDateOfBirthdayEdit" value="@user.DateOfBirthday" /></td>
+                                            </tr>
+                                        }
                                     }
-                                }
 
-                                <tr>
-                                    <td>Award</td>
-                                    <td>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlSelect2">Select award</label>
-                                            <select multiple class="form-control" id="exampleFormControlSelect2">
-                                                @foreach (var user in userLogic.GetAll())
-                                                {
-                                                    if (user.Name == resultUser)
+                                    <tr>
+                                        <td>Award</td>
+                                        <td>
+                                            <div class="form-group">
+                                                @*<label for="exampleFormControlSelect2">Select award</label>*@
+                                                <select multiple class="form-control" id="exampleFormControlSelect2">
+                                                    @foreach (var user in userLogic.GetAll())
                                                     {
-                                                        if (user.userAward != null)
+                                                        if (user.Name == resultUser)
                                                         {
-                                                            foreach (var awardUser in user.userAward)
+                                                            if (user.userAward != null)
                                                             {
-                                                                foreach (var award in awardLogic.GetAll())
+                                                                foreach (var awardUser in user.userAward)
                                                                 {
-                                                                    if (awardUser == award.Id)
+                                                                    foreach (var award in awardLogic.GetAll())
                                                                     {
-                                                                        <option>@award.Title</option>
+                                                                        if (awardUser == award.Id)
+                                                                        {
+                                                                            <option>@award.Title</option>
+                                                                        }
                                                                     }
                                                                 }
                                                             }
                                                         }
                                                     }
-                                                }
-                                            </select>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -288,13 +395,12 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Edit admin</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Edit @resultEmail</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            @resultEmail
                             <table class="table table-hover" cellspacing="0">
                                 @foreach (var userSite in _authModel.GetAll())
                                 {
@@ -330,6 +436,54 @@
                 </div>
             </div>
         }
+        <!-- ModalAddUser -->
+        @if (!hideMoadlAddUserShow)
+        {
+            <div class="modal" id="myModalAddUser" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add User</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="~/Pages/AdminPanel.cshtml" method="post">
+                            <div class="modal-body">
+                                <table class="table table-hover" cellspacing="0">
+                                    <tr>
+                                        <td>Name</td>
+                                        <td><input type="text" name="nameAddUser" value="@nameAddUser" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Birthday("01.01.9999")</td>
+                                        <td><input type="text" name="dobAddUser" value="@dobAddUser" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Award list</td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select name="idSelectAwardAddUser" class="form-control" id="exampleFormControlSelect5">
+                                                    <option value="none">none</option>
+                                                    @foreach (var awardTitle in awardLogic.GetAll())
+                                                    {
+                                                        <option value="@awardTitle.Id">@awardTitle.Title</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button class="btn btn-primary">Create user</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
     </main>
 
 <script src="~/Scripts/jquery-3.0.0.js"></script>
@@ -343,6 +497,7 @@
 
     $('#myModal').modal('show');
     $('#myModalEmail').modal('show');
+    $('#myModalAddUser').modal('show');
 
     $('.toast').toast(
         {
