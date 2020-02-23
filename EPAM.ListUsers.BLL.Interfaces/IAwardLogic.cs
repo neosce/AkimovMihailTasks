@@ -16,5 +16,7 @@ namespace EPAM.ListUsers.BLL.Interfaces
 
         IEnumerable<Award> GetAll();
 
+        string DeletedById(int id);
+
     }
 }

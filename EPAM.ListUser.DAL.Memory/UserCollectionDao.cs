@@ -41,13 +41,15 @@ namespace EPAM.ListUser.DAL.Memory
             if (_user.ContainsKey(idUser))
             {
                 _user.TryGetValue(idUser, out var user);
-
-                for (int i = 0; i < user.userAward.Count; i++)
+                if (user.userAward != null)
                 {
-                    if (user.userAward[i] == idAward)
+                    for (int i = 0; i < user.userAward.Count; i++)
                     {
-                        user.userAward.RemoveAt(i);
-                        return $"This is Award:{idAward} was deleted!";
+                        if (user.userAward[i] == idAward)
+                        {
+                            user.userAward.RemoveAt(i);
+                            return $"This is Award:{idAward} was deleted!";
+                        }
                     }
                 }
             }

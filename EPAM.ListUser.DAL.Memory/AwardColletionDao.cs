@@ -52,5 +52,19 @@ namespace EPAM.ListUser.DAL.Memory
 
             return award;
         }
+
+        string IAwardDao.DeletedById(int id)
+        {
+            if (_award.ContainsKey(id))
+            {
+                _award.Remove(id);
+
+                return $"This is id:{id} was deleted!";
+            }
+            else
+            {
+                return $"This is id:{id} missing or not added!";
+            }
+        }
     }
 }

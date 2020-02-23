@@ -2,6 +2,7 @@
 @using EPAM.ListUserAward.WebPages.Controller;
 @using EPAM.ListUser.Ioc;
 @using EPAM.ListUsers.Entities;
+@using EPAM.ListUserAward.WebPages.Common;
 @{
     Layout = null;
 
@@ -32,6 +33,8 @@
     var _authModel = new AuthModel();
     var messageRole = "";
     var logoUser = "";
+    var hideMoadLogoUserLoadShow = true;
+    UserAuth userEmail = null;
 
     foreach (var authEmail in _authModel.GetAll())
     {
@@ -39,6 +42,7 @@
         {
             messageRole = authEmail.UserRights;
             logoUser = authEmail.UserLogo;
+            userEmail = authEmail;
         }
     }
 
@@ -118,6 +122,18 @@
         {
             hideMoadlDeleteAwardShow = false;
             titleDeleteAward = awardLogic.GetById(int.Parse(Request["idAwardDelete"]));
+
+            foreach (var user in userLogic.GetAll())
+            {
+                userLogic.DeletedByIdAward(user.Id, int.Parse(Request["idAwardDelete"]));
+            }
+
+            awardLogic.DeletedById(int.Parse(Request["idAwardDelete"]));
+
+            foreach (var award in awardLogic.GetAll())
+            {
+                
+            }
         }
         else if (Request["idSelectUserRights"] != null)
         {
@@ -133,6 +149,14 @@
                     }
                 }
             }
+        }
+        else if (Request["editUserLogo"] != null)
+        {
+            hideMoadLogoUserLoadShow = false;
+        }
+        else if (Request["linkAddImage"] != null)
+        {
+            userEmail.UserLogo = Request["linkAddImage"];
         }
 
     }
@@ -164,8 +188,10 @@
                         <img src="@logoUser" width="40" height="40" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @*<a class="dropdown-item" href="#">Dashboard</a>*@
-                        <a class="dropdown-item" href="#">Edit picture</a>
+                        <form action="~/Pages/AdminPanel.cshtml" method="post">
+                            <input class="form-control" type="hidden" name="editUserLogo" value="1" style="width:0px" />
+                            <button class="dropdown-item">Edit picture</button>
+                        </form>
                         <a id="btn_logOut" class="dropdown-item" href="#">Log Out</a>
                     </div>
                 </li>
@@ -273,7 +299,7 @@
                             <th>Id</th>
                             <th>Title</th>
                             <th>Name</th>
-                            <th></th>
+                            @*<th></th>*@
                             <th></th>
                         </tr>
                     </thead>
@@ -300,12 +326,12 @@
                                         }
                                     }
                                 </td>
-                                <td>
+                                @*<td>
                                     <form action="~/Pages/AdminPanel.cshtml" method="post">
                                         <input class="form-control" type="hidden" name="id" value="@award.Id" style="width:0px" />
                                         <button class="btn btn-primary">Edit</button>
                                     </form>
-                                </td>
+                                </td>*@
                                 <td>
                                     <form action="~/Pages/AdminPanel.cshtml" method="post">
                                         <input class="form-control" type="hidden" name="idAwardDelete" value="@award.Id" style="width:0px" />
@@ -440,12 +466,19 @@
                                                     {
                                                         foreach (var awardTitle in awardLogic.GetAll())
                                                         {
-                                                            foreach (var userAwardId in user.userAward)
+                                                            if (user.userAward != null)
                                                             {
-                                                                if (userAwardId != awardTitle.Id)
+                                                                foreach (var userAwardId in user.userAward)
                                                                 {
-                                                                    <option value="@awardTitle.Id">@awardTitle.Title</option>
+                                                                    if (userAwardId != awardTitle.Id)
+                                                                    {
+                                                                        <option value="@awardTitle.Id">@awardTitle.Title</option>
+                                                                    }
                                                                 }
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="@awardTitle.Id">@awardTitle.Title</option>
                                                             }
                                                         }
                                                     }
@@ -634,30 +667,61 @@
                 </div>
             </div>
         }
+        <!-- ModalLogoUserLoad -->
+        @if (!hideMoadLogoUserLoadShow)
+        {
+            <div class="modal" id="myModalLogoUserLoad" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add link to your pic</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="~/Pages/AdminPanel.cshtml" method="post">
+                            <div class="modal-body">
+                                <table class="table table-hover" cellspacing="0">
+                                    <tr>
+                                        <td>Link image</td>
+                                        <td><input type="text" name="linkAddImage" value="@logoUser" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button class="btn btn-primary">Save image</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
     </main>
 
-<script src="~/Scripts/jquery-3.0.0.js"></script>
-<script src="~/Scripts/bootstrap.js"></script>
-<script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/popper.js"></script>
 
-<script>
-    $('#btn_logOut').click(function () {
-        location.href = "/Pages/SignOut";
-    })
-
-    $('#myModal').modal('show');
-    $('#myModalEmail').modal('show');
-    $('#myModalAddUser').modal('show');
-    $('#myModalAddAward').modal('show');
-    $('#myModalDeleteAward').modal('show');
-
-    $('.toast').toast(
-        {
-            animation: true,
-            autohide: true,
-            delay: 5000
+    <script>
+        $('#btn_logOut').click(function () {
+            location.href = "/Pages/SignOut";
         })
-    $('.toast').toast('show');
-</script>
+
+        $('#myModal').modal('show');
+        $('#myModalEmail').modal('show');
+        $('#myModalAddUser').modal('show');
+        $('#myModalAddAward').modal('show');
+        $('#myModalDeleteAward').modal('show');
+        $('#myModalLogoUserLoad').modal('show');
+
+        $('.toast').toast(
+            {
+                animation: true,
+                autohide: true,
+                delay: 5000
+            })
+        $('.toast').toast('show');
+    </script>
 </body>
 </html>

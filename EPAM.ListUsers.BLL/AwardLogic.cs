@@ -33,6 +33,11 @@ namespace EPAM.ListUsers.BLL
         {
             return _awardDao.GetById(id);
         }
+
+        public string DeletedById(int id)
+        {
+            return _awardDao.DeletedById(id);
+        }
     }
     
 }

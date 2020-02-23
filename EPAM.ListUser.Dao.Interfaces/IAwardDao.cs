@@ -16,5 +16,6 @@ namespace EPAM.ListUser.Dao.Interfaces
 
         IEnumerable<Award> GetAll();
 
+        string DeletedById(int id);
     }
 }
