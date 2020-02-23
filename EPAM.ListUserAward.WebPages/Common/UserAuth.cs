@@ -12,6 +12,7 @@
         public string Telephone { get; set; }
 
         public string UserRights { get; set; }
+        public string UserLogo { get; set; }
 
     }
 }

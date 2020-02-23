@@ -16,6 +16,7 @@
     var awardLogic = DependencyResolver.AwardLogic;
     var _authModel = new AuthModel();
     var messageRole = "";
+    var logoUser = "";
 
 
 
@@ -24,6 +25,7 @@
         if (authEmail.Email == User.Identity.Name)
         {
             messageRole = authEmail.UserRights;
+            logoUser = authEmail.UserLogo;
         }
     }
 
@@ -51,10 +53,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         @User.Identity.Name
-                        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                        <img src="@logoUser" width="40" height="40" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @*<a class="dropdown-item" href="#">Dashboard</a>*@
                         <a class="dropdown-item" href="#">Edit picture</a>
                         <a id="btn_logOut" class="dropdown-item" href="#">Log Out</a>
                     </div>
@@ -123,7 +124,53 @@
                 </table>
             </div>
             <small class="d-block text-right mt-3">
-                <a href="#">All updates</a>
+                <a href="~/Pages/AdminPanel">All updates</a>
+            </small>
+        </div>
+        <div class="my-3 p-3 bg-dark rounded box-shadow">
+            <h3 class="text-center">Table award-user</h3>
+        </div>
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="media text-muted pt-3 border-bottom border-gray">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{_count = 1;}
+                        @foreach (var award in awardLogic.GetAll())
+                        {
+                            <tr>
+                                <td>@(_count++)</td>
+                                <td>@award.Id</td>
+                                <td>@award.Title</td>
+                                <td>
+                                    @foreach (var user in userLogic.GetAll())
+                                    {
+                                        if (user.userAward != null)
+                                        {
+                                            foreach (var awardUser in user.userAward)
+                                            {
+                                                if (awardUser == award.Id)
+                                                {
+                                                    @user.Name<br />
+                                                }
+                                            }
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <small class="d-block text-right mt-3">
+                <a href="~">All updates</a>
             </small>
         </div>
     </main>

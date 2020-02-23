@@ -13,12 +13,16 @@
     string resultUser = null;
     string resultEmail = null;
     string nameAddUser = null;
+    string titleAddAward = null;
+    Award titleDeleteAward = null;
     string dobAddUser = null;
 
     int _count = 1;
     bool hideModalShow = true;
     bool hideModalEmailShow = true;
     bool hideMoadlAddUserShow = true;
+    bool hideMoadlAddAwardShow = true;
+    bool hideMoadlDeleteAwardShow = true;
 
     List<int> _listAwardUser = new List<int>();
 
@@ -27,12 +31,14 @@
     var awardLogic = DependencyResolver.AwardLogic;
     var _authModel = new AuthModel();
     var messageRole = "";
+    var logoUser = "";
 
     foreach (var authEmail in _authModel.GetAll())
     {
         if (authEmail.Email == User.Identity.Name)
         {
             messageRole = authEmail.UserRights;
+            logoUser = authEmail.UserLogo;
         }
     }
 
@@ -83,19 +89,51 @@
         }
         else if (Request["UserNameEdit"] != null && Request["UserDateOfBirthdayEdit"] != null)
         {
-            _ = userLogic.Add(new User() 
+            foreach (var user in userLogic.GetAll())
             {
-                Name = Request["UserNameEdit"],
-                DateOfBirthday = DateTime.Parse(Request["UserDateOfBirthdayEdit"])
-            });
-
-
-            //if (Request["idSelectAwardAddUser"] != "none")
-            //{
-            //    addUser.userAward = new List<int>() { int.Parse(Request["idSelectAwardAddUser"]) };
-            //}
+                if (int.Parse(Request["UserIdEdit"]) == user.Id)
+                {
+                    user.Name = Request["UserNameEdit"];
+                    user.DateOfBirthday = DateTime.Parse(Request["UserDateOfBirthdayEdit"]);
+                    if (Request["idSelectAwardEditUser"] != "none")
+                    {
+                        user.userAward.Add(int.Parse(Request["idSelectAwardEditUser"]));
+                    }
+                    break;
+                }
+            }
         }
-
+        else if (Request["idAwardUser"] != null)
+        {
+            hideMoadlAddAwardShow = false;
+        }
+        else if (Request["titleAddAward"] != null)
+        {
+            awardLogic.Add(new Award()
+            {
+                Title = Request["titleAddAward"]
+            });
+        }
+        else if (Request["idAwardDelete"] != null)
+        {
+            hideMoadlDeleteAwardShow = false;
+            titleDeleteAward = awardLogic.GetById(int.Parse(Request["idAwardDelete"]));
+        }
+        else if (Request["idSelectUserRights"] != null)
+        {
+            foreach (var userSite in _authModel.GetAll())
+            {
+                if (Request["UserEmail"] == userSite.Email)
+                {
+                    userSite.UserRights = Request["idSelectUserRights"];
+                    if (userSite.UserRights == "Ban")
+                    {
+                        _authModel.DeletedById(userSite.Id);
+                        break;
+                    }
+                }
+            }
+        }
 
     }
 
@@ -123,7 +161,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         @User.Identity.Name
-                        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                        <img src="@logoUser" width="40" height="40" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         @*<a class="dropdown-item" href="#">Dashboard</a>*@
@@ -236,6 +274,7 @@
                             <th>Title</th>
                             <th>Name</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -267,8 +306,22 @@
                                         <button class="btn btn-primary">Edit</button>
                                     </form>
                                 </td>
+                                <td>
+                                    <form action="~/Pages/AdminPanel.cshtml" method="post">
+                                        <input class="form-control" type="hidden" name="idAwardDelete" value="@award.Id" style="width:0px" />
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         }
+                        <tr>
+                            <td>
+                                <form action="~/Pages/AdminPanel.cshtml" method="post">
+                                    <input class="form-control" type="hidden" name="idAwardUser" value="1" style="width:0px" />
+                                    <button class="btn btn-success">Add</button>
+                                </form>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -338,6 +391,11 @@
                                         if (user.Name == resultUser)
                                         {
                                             <tr>
+                                                <td>User Id</td>
+                                                <td style="text-align:center;">@user.Id</td>
+                                                <td><input type="hidden" name="UserIdEdit" value="@user.Id" /></td>
+                                            </tr>
+                                            <tr>
                                                 <td>Name user</td>
                                                 <td><input type="text" name="UserNameEdit" value="@user.Name" /></td>
                                             </tr>
@@ -375,6 +433,24 @@
                                                     }
                                                 </select>
                                             </div>
+                                            <div class="form-group">
+                                                <select name="idSelectAwardEditUser" class="form-control" id="exampleFormControlSelect6">
+                                                    <option value="none">none</option>
+                                                    @foreach (var user in userLogic.GetAll())
+                                                    {
+                                                        foreach (var awardTitle in awardLogic.GetAll())
+                                                        {
+                                                            foreach (var userAwardId in user.userAward)
+                                                            {
+                                                                if (userAwardId != awardTitle.Id)
+                                                                {
+                                                                    <option value="@awardTitle.Id">@awardTitle.Title</option>
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
                                         </td>
                                     </tr>
                                 </table>
@@ -400,38 +476,57 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <table class="table table-hover" cellspacing="0">
-                                @foreach (var userSite in _authModel.GetAll())
-                                {
-                                    if (userSite.Email == resultEmail)
+                        <form action="~/Pages/AdminPanel.cshtml" method="post">
+                            <div class="modal-body">
+                                <table class="table table-hover" cellspacing="0">
+                                    @foreach (var userSite in _authModel.GetAll())
                                     {
-                                        <tr>
-                                            <td>Email user</td>
-                                            <td><input type="text" name="UserEmail" value="@userSite.Email" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Password</td>
-                                            <td><input type="text" name="UserPassword" value="@userSite.Password" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Telephone</td>
-                                            <td><input type="text" name="UserTelephone" value="@userSite.Telephone" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td>UserRights</td>
-                                            <td><input type="text" name="UserRights" value="@userSite.UserRights" /></td>
-                                        </tr>
-                                    }
-                                }
+                                        if (userSite.Email == resultEmail)
+                                        {
+                                            <tr>
+                                                <td>Email user</td>
+                                                <td><input type="text" name="UserEmail" value="@userSite.Email" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Password</td>
+                                                <td><input type="text" name="UserPassword" value="@userSite.Password" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Telephone</td>
+                                                <td><input type="text" name="UserTelephone" value="@userSite.Telephone" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td>UserRights: @userSite.UserRights</td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <select name="idSelectUserRights" class="form-control" id="exampleFormControlSelect7">
+                                                            (@if (userSite.UserRights == "User")
+                                                            {
+                                                                <option value="User">User</option>
+                                                                <option value="Admin">Admin</option>
+                                                                <option class="text-danger" value="Ban">Ban</option>
+                                                            }
+                                                            else if (userSite.UserRights == "Admin")
+                                                            {
+                                                                <option value="Admin">Admin</option>
+                                                                <option value="User">User</option>
+                                                                <option class="text-danger" value="Ban">Ban</option>
+                                                            })
 
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </div>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -484,6 +579,61 @@
                 </div>
             </div>
         }
+        <!-- ModalAddAward -->
+        @if (!hideMoadlAddAwardShow)
+        {
+            <div class="modal" id="myModalAddAward" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add Award</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="~/Pages/AdminPanel.cshtml" method="post">
+                            <div class="modal-body">
+                                <table class="table table-hover" cellspacing="0">
+                                    <tr>
+                                        <td>Title</td>
+                                        <td><input type="text" name="titleAddAward" value="@titleAddAward" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button class="btn btn-primary">Create award</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- ModalDeleteAward -->
+        @if (!hideMoadlDeleteAwardShow)
+        {
+            <div class="modal" id="myModalDeleteAward" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Delete @titleDeleteAward.Title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form action="~/Pages/AdminPanel.cshtml" method="post">
+                            <div class="modal-body">
+                                <p>Delete award all users?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button class="btn btn-danger">Delete award</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
     </main>
 
 <script src="~/Scripts/jquery-3.0.0.js"></script>
@@ -498,6 +648,8 @@
     $('#myModal').modal('show');
     $('#myModalEmail').modal('show');
     $('#myModalAddUser').modal('show');
+    $('#myModalAddAward').modal('show');
+    $('#myModalDeleteAward').modal('show');
 
     $('.toast').toast(
         {
