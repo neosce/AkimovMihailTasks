@@ -61,6 +61,10 @@
       <Project>{AE33C198-640D-4AC9-B7D8-0701986169C4}</Project>
       <Name>EPAM.ListUsers.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EPAM.ListUsers.DAL\EPAM.ListUsers.DAL.csproj">
+      <Project>{DCC9C09C-C31B-44C6-9A24-8C93F08F5FF4}</Project>
+      <Name>EPAM.ListUsers.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

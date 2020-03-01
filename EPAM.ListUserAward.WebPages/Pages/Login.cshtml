@@ -46,7 +46,8 @@
                         Email = email,
                         Password = pass,
                         Telephone = tel,
-                        UserRights = "User"
+                        UserRights = "User",
+                        UserLogo = "https://img.icons8.com/clouds/2x/user.png"
                     });
                     FormsAuthentication.SetAuthCookie(email, createPersistentCookie: true);
                     Response.Redirect("~");

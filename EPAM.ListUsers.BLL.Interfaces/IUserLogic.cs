@@ -16,5 +16,7 @@ namespace EPAM.ListUsers.BLL.Interfaces
 
         string DeletedByIdAward(int idUser, int idAward);
 
+        string Update(User user);
+
     }
 }

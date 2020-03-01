@@ -1,7 +1,7 @@
-﻿using EPAM.ListUser.DAL.Memory;
-using EPAM.ListUser.Dao.Interfaces;
+﻿using EPAM.ListUser.Dao.Interfaces;
 using EPAM.ListUsers.BLL;
 using EPAM.ListUsers.BLL.Interfaces;
+using EPAM.ListUsers.DAL;
 
 namespace EPAM.ListUser.Ioc
 {
@@ -11,7 +11,7 @@ namespace EPAM.ListUser.Ioc
         // User
         private static IUserDao _userDao;
 
-        public static IUserDao UserDao => _userDao ?? (_userDao = new UserCollectionDao());
+        public static IUserDao UserDao => _userDao ?? (_userDao = new UserDao());
 
         private static IUserLogic _userLogic;
 
@@ -20,7 +20,7 @@ namespace EPAM.ListUser.Ioc
         // Award
         private static IAwardDao _awardDao;
 
-        public static IAwardDao AwardDao => _awardDao ?? (_awardDao = new AwardColletionDao());
+        public static IAwardDao AwardDao => _awardDao ?? (_awardDao = new AwardDao());
 
         private static IAwardLogic _awardLogic;
 

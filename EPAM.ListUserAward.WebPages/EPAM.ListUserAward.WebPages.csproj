@@ -119,13 +119,13 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Pages\IncreaseCounter.cshtml" />
     <Content Include="Pages\Login.cshtml" />
     <Content Include="wwwroot\css\IndexStyle.css" />
     <Content Include="wwwroot\css\Login2Style.css" />
     <Content Include="wwwroot\css\LoginStyle.css" />
     <Content Include="wwwroot\pic\Index\check_circle-24px.svg" />
     <Content Include="wwwroot\pic\Login\warning-24px.svg" />
+    <Content Include="wwwroot\Script\AdminPanelScript.js" />
     <Content Include="wwwroot\Script\LoginScript.js" />
     <Content Include="Pages\SignOut.cshtml" />
     <Content Include="Pages\AdminPanel.cshtml" />

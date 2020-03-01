@@ -18,5 +18,7 @@ namespace EPAM.ListUser.Dao.Interfaces
 
         string DeletedByIdAward(int idUser, int idAward);
 
+        string Update(User user);
+
     }
 }

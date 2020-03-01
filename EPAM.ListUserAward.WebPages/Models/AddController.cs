@@ -15,37 +15,37 @@ namespace EPAM.ListUserAward.WebPages.Models
         {
             #region Collection in user for awards
 
-            // Award
-            _ = awardLogic.Add(new Award()
-            {
-                Title = "Backend",
-            });
+            //// Award
+            //_ = awardLogic.Add(new Award()
+            //{
+            //    Title = "Backend",
+            //});
 
-            _ = awardLogic.Add(new Award()
-            {
-                Title = "Frontend",
-            });
+            //_ = awardLogic.Add(new Award()
+            //{
+            //    Title = "Frontend",
+            //});
 
-            // User
-            _ = userLogic.Add(new User()
-            {
-                DateOfBirthday = DateTime.Parse("14.05.1995"),
-                Name = "Nikola",
-                userAward = new List<int> { 1, 2 }
-            });
+            //// User
+            //_ = userLogic.Add(new User()
+            //{
+            //    DateOfBirthday = DateTime.Parse("14.05.1995"),
+            //    Name = "Nikola",
+            //    userAward = new List<int> { 1, 2 }
+            //});
 
-            _ = userLogic.Add(new User()
-            {
-                DateOfBirthday = DateTime.Parse("17.02.2005"),
-                Name = "Slava"
-            });
+            //_ = userLogic.Add(new User()
+            //{
+            //    DateOfBirthday = DateTime.Parse("17.02.2005"),
+            //    Name = "Slava"
+            //});
 
-            _ = userLogic.Add(new User()
-            {
-                DateOfBirthday = DateTime.Parse("01.03.1955"),
-                Name = "Igor",
-                userAward = new List<int> { 1, 2 }
-            });
+            //_ = userLogic.Add(new User()
+            //{
+            //    DateOfBirthday = DateTime.Parse("01.03.1955"),
+            //    Name = "Igor",
+            //    userAward = new List<int> { 1, 2 }
+            //});
             #endregion
 
             #region Collection in user for Site
@@ -67,7 +67,8 @@ namespace EPAM.ListUserAward.WebPages.Models
                 Email = "UserAdmin@mail.com",
                 Password = "admin",
                 Telephone = "111111",
-                UserRights = "Admin"
+                UserRights = "Admin",
+                UserLogo = "https://clipartart.com/images/admin-icon-clipart-5.jpg"
             });
 
             //User
@@ -76,7 +77,8 @@ namespace EPAM.ListUserAward.WebPages.Models
                 Email = "UserOne@mail.com",
                 Password = "12345",
                 Telephone = "121212",
-                UserRights = "User"
+                UserRights = "User",
+                UserLogo = "https://img.icons8.com/clouds/2x/user.png"
             });
 
             authModel.Add(new UserAuth()
@@ -84,7 +86,8 @@ namespace EPAM.ListUserAward.WebPages.Models
                 Email = "UserTwo@mail.com",
                 Password = "12345",
                 Telephone = "131313",
-                UserRights = "User"
+                UserRights = "User",
+                UserLogo = "https://img.icons8.com/clouds/2x/user.png"
             });
 
             authModel.Add(new UserAuth()
@@ -92,7 +95,8 @@ namespace EPAM.ListUserAward.WebPages.Models
                 Email = "UserThree@mail.com",
                 Password = "12345",
                 Telephone = "141414",
-                UserRights = "User"
+                UserRights = "User",
+                UserLogo = "https://img.icons8.com/clouds/2x/user.png"
             });
 
             #endregion

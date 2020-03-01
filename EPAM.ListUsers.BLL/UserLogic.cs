@@ -39,5 +39,10 @@ namespace EPAM.ListUsers.BLL
         {
             return _userDao.GetById(id);
         }
+
+        public string Update(User user)
+        {
+            return _userDao.Update(user);
+        }
     }
 }

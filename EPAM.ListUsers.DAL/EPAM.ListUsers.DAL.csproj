@@ -41,8 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AwardDao.cs" />
+    <Compile Include="UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EPAM.ListUser.Dao.Interfaces\EPAM.ListUser.Dao.Interfaces.csproj">
+      <Project>{721F9A3C-8637-409C-A70E-48576F47E4A2}</Project>
+      <Name>EPAM.ListUser.Dao.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPAM.ListUsers.Entities\EPAM.ListUsers.Entities.csproj">
+      <Project>{16704F05-A8C6-4D1F-8614-501E1D998ECC}</Project>
+      <Name>EPAM.ListUsers.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

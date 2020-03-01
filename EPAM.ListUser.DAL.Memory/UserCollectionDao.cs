@@ -81,5 +81,10 @@ namespace EPAM.ListUser.DAL.Memory
             
             return user;
         }
+
+        string IUserDao.Update(User user)
+        {
+            return $"Sql update";
+        }
     }
 }

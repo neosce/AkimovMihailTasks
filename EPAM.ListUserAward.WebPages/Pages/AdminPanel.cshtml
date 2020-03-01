@@ -81,7 +81,7 @@
         //TODO: Combine in once method!
         else if (Request["nameAddUser"] != null && Request["dobAddUser"] != null)
         {
-            var addUser = userLogic.Add(new User());
+            var addUser = new User();
 
             addUser.Name = Request["nameAddUser"];
             addUser.DateOfBirthday = DateTime.Parse(Request["dobAddUser"]);
@@ -90,19 +90,24 @@
             {
                 addUser.userAward = new List<int>() { int.Parse(Request["idSelectAwardAddUser"]) };
             }
+
+            userLogic.Add(addUser);
         }
         else if (Request["UserNameEdit"] != null && Request["UserDateOfBirthdayEdit"] != null)
         {
+            var updateUser = new User();
             foreach (var user in userLogic.GetAll())
             {
                 if (int.Parse(Request["UserIdEdit"]) == user.Id)
                 {
-                    user.Name = Request["UserNameEdit"];
-                    user.DateOfBirthday = DateTime.Parse(Request["UserDateOfBirthdayEdit"]);
+                    updateUser.Id = user.Id;
+                    updateUser.Name = Request["UserNameEdit"];
+                    updateUser.DateOfBirthday = DateTime.Parse(Request["UserDateOfBirthdayEdit"]);
                     if (Request["idSelectAwardEditUser"] != "none")
                     {
-                        user.userAward.Add(int.Parse(Request["idSelectAwardEditUser"]));
+                        updateUser.userAward = new List<int>() { int.Parse(Request["idSelectAwardEditUser"]) };
                     }
+                    userLogic.Update(updateUser);
                     break;
                 }
             }
@@ -132,7 +137,7 @@
 
             foreach (var award in awardLogic.GetAll())
             {
-                
+
             }
         }
         else if (Request["idSelectUserRights"] != null)
@@ -299,7 +304,6 @@
                             <th>Id</th>
                             <th>Title</th>
                             <th>Name</th>
-                            @*<th></th>*@
                             <th></th>
                         </tr>
                     </thead>
@@ -326,12 +330,6 @@
                                         }
                                     }
                                 </td>
-                                @*<td>
-                                    <form action="~/Pages/AdminPanel.cshtml" method="post">
-                                        <input class="form-control" type="hidden" name="id" value="@award.Id" style="width:0px" />
-                                        <button class="btn btn-primary">Edit</button>
-                                    </form>
-                                </td>*@
                                 <td>
                                     <form action="~/Pages/AdminPanel.cshtml" method="post">
                                         <input class="form-control" type="hidden" name="idAwardDelete" value="@award.Id" style="width:0px" />
@@ -436,7 +434,6 @@
                                         <td>Award</td>
                                         <td>
                                             <div class="form-group">
-                                                @*<label for="exampleFormControlSelect2">Select award</label>*@
                                                 <select multiple class="form-control" id="exampleFormControlSelect2">
                                                     @foreach (var user in userLogic.GetAll())
                                                     {
@@ -464,21 +461,18 @@
                                                     <option value="none">none</option>
                                                     @foreach (var user in userLogic.GetAll())
                                                     {
-                                                        foreach (var awardTitle in awardLogic.GetAll())
+                                                        if (user.Name == resultUser)
                                                         {
-                                                            if (user.userAward != null)
+                                                            foreach (var award in awardLogic.GetAll())
                                                             {
-                                                                foreach (var userAwardId in user.userAward)
+                                                                if (user.userAward != null && !user.userAward.Contains(award.Id))
                                                                 {
-                                                                    if (userAwardId != awardTitle.Id)
-                                                                    {
-                                                                        <option value="@awardTitle.Id">@awardTitle.Title</option>
-                                                                    }
+                                                                    <option value="@award.Id">@award.Title</option>
                                                                 }
-                                                            }
-                                                            else
-                                                            {
-                                                                <option value="@awardTitle.Id">@awardTitle.Title</option>
+                                                                else if(user.userAward == null)
+                                                                {
+                                                                    <option value="@award.Id">@award.Title</option>
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -702,26 +696,7 @@
     <script src="~/Scripts/jquery-3.0.0.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/popper.js"></script>
+    <script src="~/wwwroot/Script/AdminPanelScript.js"></script>
 
-    <script>
-        $('#btn_logOut').click(function () {
-            location.href = "/Pages/SignOut";
-        })
-
-        $('#myModal').modal('show');
-        $('#myModalEmail').modal('show');
-        $('#myModalAddUser').modal('show');
-        $('#myModalAddAward').modal('show');
-        $('#myModalDeleteAward').modal('show');
-        $('#myModalLogoUserLoad').modal('show');
-
-        $('.toast').toast(
-            {
-                animation: true,
-                autohide: true,
-                delay: 5000
-            })
-        $('.toast').toast('show');
-    </script>
 </body>
 </html>
