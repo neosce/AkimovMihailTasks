@@ -1,0 +1,11 @@
+﻿.mega-menu {
+    width: 800px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+@media(max-width:850px){
+    .mega-menu {
+        width:300px;
+    }
+}
