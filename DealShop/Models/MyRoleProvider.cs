@@ -1,29 +1,32 @@
-﻿using System;
+﻿using DealShop.ListUsers.BLL.Interfaces;
+using DealShop.ListUsers.Ioc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace EPAM.ListUserAward.WebPages.Models
+namespace DealShop.Models
 {
     public class MyRoleProvider : RoleProvider
     {
 
-        private AuthModel _authModel = new AuthModel();
+        private IUserLogic _userLogic = DependencyResolver.UserLogic;
 
         public override bool IsUserInRole(string username, string roleName)
         {
             return (username == "Misha@mail.com" && roleName == "SuperAdmin") ||
-                (username == "Misha@mail.com" && roleName == "User");
+               (username == "Misha@mail.com" && roleName == "User");
         }
 
         public override string[] GetRolesForUser(string username)
         {
+            
             if (username == "Misha@mail.com")
             {
                 return new string[] { "SuperAdmin" };
-            } 
-            else if (_authModel.GetByEmail(username).UserRights == "Admin")
+            }
+            else if (_userLogic.GetAll().All(x => x.LoginEmail == username && x.UserRights == "Admin"))
             {
                 return new string[] { "Admin" };
             }
@@ -33,7 +36,7 @@ namespace EPAM.ListUserAward.WebPages.Models
             }
         }
 
-        #region PLACE OF DEATH SOLID
+        #region NotImplementedException
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)

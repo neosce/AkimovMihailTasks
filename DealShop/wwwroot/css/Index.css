@@ -5,13 +5,13 @@
 }
 
 body {
-    padding: 150px 0 0 0;
+    padding-top: 150px;
     background-color: var(--blue);
-    color: cornsilk;
+    color: black;
     font-family: "Roboto Condensed", sans-serif;
 }
 
-.container {
+.containers {
     width: var(--size);
     height: var(--size);
     display: grid;
@@ -33,12 +33,12 @@ body {
 
 .shoeImg {
     background-image: url(../pic/MainPage/Girl.jpg);
-    background-color: #148bff;
+    background-color: black;
 }
 
 .shirtImg {
     background-image: url(../pic/MainPage/Men.jpg);
-    background-color: #aace29;
+    background-color: black;
 }
 
 h4,
@@ -133,3 +133,8 @@ span {
         transform: rotate(-15deg);
         transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
     }
+@media screen and (max-width:550px){
+    :root {
+        --size: 300px;
+    }
+}

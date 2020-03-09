@@ -15,7 +15,7 @@ namespace EPAM.ListUsers.DAL
     {
 
         private string _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=UserAward;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        List<User> _userList = new List<User>();
+        private List<User> _userList = new List<User>();
 
         User IUserDao.Add(User user)
         {

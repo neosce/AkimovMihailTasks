@@ -1,0 +1,25 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #d8d8d8;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+.container {
+    max-width: 1100px;
+    margin-top: 100px;
+}
+
+h3 {
+    color: white;
+}
+
+.media text-muted pt-3 {
+    width: 100%;
+}

@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+
+    if (User.IsInRole("SuperAdmin") ||  User.IsInRole("Admin"))
+    {
+        Response.Redirect("~/Pages/AdminPanel.cshtml");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    
+    </div>
+</body>
+</html>

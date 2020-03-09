@@ -23,10 +23,6 @@ namespace EPAM.ListUsers.Entities
 
                 return (a - b) / 10000;
             }
-            //set
-            //{
-            //    Age = value;
-            //}
         }
 
         public List<int> userAward { get; set; }

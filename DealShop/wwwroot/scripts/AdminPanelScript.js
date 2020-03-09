@@ -1,0 +1,1 @@
+﻿$('#myModalEmail').modal('show');

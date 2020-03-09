@@ -3,29 +3,9 @@
 @using DealShop.Models;
 @{
     Layout = "~/Pages/Layouts/_MainLayout.cshtml";
-    PageData["Title"] = "Men";
+    PageData["Title"] = "Woman";
 
     var productLogic = DependencyResolver.ProductLogic;
-    var userLogic = DependencyResolver.UserLogic;
-    string _nameProduct = null, _valueProduct = null;
-    Checkout checkout = new Checkout();
-
-
-
-    if (IsPost)
-    {
-        if (Request["valueCount"] != null && Request["productCartName"] != null)
-        {
-            var productCartName = Request["productCartName"];
-            var valueCount = Request["valueCount"];
-
-            User user = userLogic.GetAll().Single(x => x.LoginEmail == User.Identity.Name);
-
-            checkout.AddCheckout(productCartName, valueCount, user.Id);
-        }
-        
-    }
-
 }
 <head>
     <link href="~/wwwroot/css/menStyle.css" rel="stylesheet" />
@@ -33,11 +13,11 @@
 <!-- Main -->
 <div class="container">
     <div class="row">
-        @foreach (var product in productLogic.GetAll().Where(x => x.Gender == "Male"))
+        @foreach (var product in productLogic.GetAll().Where(x => x.Gender == "Female"))
         {
             <div class="col">
                 <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQB6WnVxsP_t2OyjloRYpbCMw5M11JTr6htHFSi4stSb68ikJco" alt="@product.Description">
+                    <img class="card-img-top" src="https://images.asos-media.com/products/asos-design-split-sleeve-mini-dress-with-obi-belt/11500891-4?$XXL$&wid=513&fit=constrain" alt="@product.Description">
                     <div class="card-block">
                         <h4 class="card-title">@product.NameProduct</h4>
                         <p class="card-text">Price: @product.Price</p>
@@ -60,7 +40,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="~/Pages/Men" method="post">
+            <form action="~/Pages/Woman" method="post">
                 <div class="modal-body">
 
                     <table class="show-cart table">
@@ -70,10 +50,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary">Order now</button>
+                    <button type="button" class="btn btn-primary">Order now</button>
                     <button class="clear-cart btn btn-danger">Clear Cart</button>
                 </div>
             </form>
         </div>
     </div>
-</div> 
+</div>

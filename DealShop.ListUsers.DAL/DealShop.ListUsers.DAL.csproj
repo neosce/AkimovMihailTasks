@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>36e362fd-8793-4ce1-9e65-f191f5853d29</ProjectGuid>
+    <ProjectGuid>{36E362FD-8793-4CE1-9E65-F191F5853D29}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DealShop.ListUsers.DAL</RootNamespace>
@@ -31,24 +31,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ProductDao.cs" />
+    <Compile Include="UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DealShop.ListUser.Dao.Interfaces\DealShop.ListUser.Dao.Interfaces.csproj">
+      <Project>{785CD0CF-B8E9-462B-B8AB-92BF57839B02}</Project>
+      <Name>DealShop.ListUser.Dao.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DealShop.ListUsers.Entities\DealShop.ListUsers.Entities.csproj">
+      <Project>{177d36a1-0811-4053-9922-17708ffdd385}</Project>
+      <Name>DealShop.ListUsers.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPAM.ListUsers.Entities\EPAM.ListUsers.Entities.csproj">
+      <Project>{16704F05-A8C6-4D1F-8614-501E1D998ECC}</Project>
+      <Name>EPAM.ListUsers.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
