@@ -6,6 +6,23 @@
     PageData["Title"] = "Woman";
 
     var productLogic = DependencyResolver.ProductLogic;
+    var userLogic = DependencyResolver.UserLogic;
+    Checkout checkout = new Checkout();
+
+    if (IsPost)
+    {
+        if (Request["valueCount"] != null && Request["productCartName"] != null)
+        {
+            var productCartName = Request["productCartName"];
+            var valueCount = Request["valueCount"];
+
+            User user = userLogic.GetAll().Single(x => x.LoginEmail == User.Identity.Name);
+
+            checkout.AddCheckout(productCartName, valueCount, user.Id);
+        }
+        
+    }
+
 }
 <head>
     <link href="~/wwwroot/css/menStyle.css" rel="stylesheet" />
@@ -50,7 +67,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Order now</button>
+                    <button class="btn btn-primary">Order now</button>
                     <button class="clear-cart btn btn-danger">Clear Cart</button>
                 </div>
             </form>
