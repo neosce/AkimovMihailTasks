@@ -1,0 +1,5 @@
+SET IDENTITY_INSERT [dbo].[User] ON
+INSERT INTO [dbo].[User] ([Id], [LoginEmail], [Password], [FirstName], [LastName], [DateOfBirthday], [Address], [Age], [Money], [CreditsCardNumber], [UserLogo], [UserRights]) VALUES (2, N'Misha@mail.com', N'superadmin', N'Misha', N'Akimov', N'14.05.1995', N'Saratov Puskina 4', 24, CAST(0 AS Decimal(18, 0)), 1111111111, NULL, N'SuperAdmin')
+INSERT INTO [dbo].[User] ([Id], [LoginEmail], [Password], [FirstName], [LastName], [DateOfBirthday], [Address], [Age], [Money], [CreditsCardNumber], [UserLogo], [UserRights]) VALUES (3, N'Admin@mail.com', N'admin', N'Ivan', N'Ivanov', N'10.10.1993', N'Moscow Red square 8', 26, CAST(10000 AS Decimal(18, 0)), 1010101011, NULL, N'Admin')
+INSERT INTO [dbo].[User] ([Id], [LoginEmail], [Password], [FirstName], [LastName], [DateOfBirthday], [Address], [Age], [Money], [CreditsCardNumber], [UserLogo], [UserRights]) VALUES (4, N'UserOne@mail.com', N'12345', N'Ted', N'Lin', N'10.03.1998', N'Leningrad ecsponata 3', 22, CAST(3000 AS Decimal(18, 0)), 1535236532, NULL, N'User')
+SET IDENTITY_INSERT [dbo].[User] OFF
