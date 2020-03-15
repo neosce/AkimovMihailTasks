@@ -128,9 +128,10 @@
     <Content Include="wwwroot\css\util.css" />
     <Content Include="wwwroot\css\_MainLayout.css" />
     <Content Include="wwwroot\pic\check_circle-24px.svg" />
-    <Content Include="wwwroot\pic\MainPage\Girl.jpg" />
-    <Content Include="wwwroot\pic\MainPage\Men.jpg" />
+    <Content Include="wwwroot\pic\MainPage\Men.png" />
+    <Content Include="wwwroot\pic\MainPage\woman.png" />
     <Content Include="wwwroot\scripts\AdminPanelScript.js" />
+    <Content Include="wwwroot\scripts\HoverScript.js" />
     <Content Include="wwwroot\scripts\LoginScript.js" />
     <Content Include="wwwroot\scripts\LogOut.js" />
     <Content Include="wwwroot\scripts\mainLoyoutNavbar.js" />
@@ -218,6 +219,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
+    <Content Include="wwwroot\font\sansserifexbflf-italic.otf" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AuthenticationUser.cs" />

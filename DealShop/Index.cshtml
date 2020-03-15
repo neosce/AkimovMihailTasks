@@ -2,68 +2,28 @@
     Layout = "~/Pages/Layouts/_MainLayout.cshtml";
     PageData["Title"] = "Index";
 }
-    <div class="container" style="margin-left:15%">
-        <div class="row">
-            <div class="col-md-6">
-                <a class="text-decoration-none text-white" href="~/Pages/Woman">
-                    <div class="containers shoe">
-                        <div class="productImage shoeImg"></div>
-                        <div class="size shoeSize">
-                            <h4>SIZE</h4>
-                            <ul>
-                                <li>9</li>
-                                <li>8</li>
-                                <li>7</li>
-                            </ul>
-                        </div>
-                        <div class="price shoePrice">
-                            <h4>PRICE</h4>
-                            <span>$150</span>
-                        </div>
-                        <div class="color shoeColor">
-                            <h4>COLORS</h4>
-                            <ul>
-                                <li><span class="blue"></span></li>
-                                <li><span class="yellow"></span></li>
-                                <li><span class="red"></span></li>
-                            </ul>
-                        </div>
-                        <div class="productName shoeName">
-                            Woman
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="text-decoration-none text-white" href="~/Pages/Men">
-                    <div class="containers shirt">
-                        <div class="productImage shirtImg"></div>
-                        <div class="size shirtSize">
-                            <h4>SIZE</h4>
-                            <ul>
-                                <li>S</li>
-                                <li>M</li>
-                                <li>L</li>
-                            </ul>
-                        </div>
-                        <div class="price shirtPrice">
-                            <h4>PRICE</h4>
-                            <span>$50</span>
-                        </div>
-                        <div class="color shirtColor">
-                            <h4>COLORS</h4>
-                            <ul>
-                                <li><span class="blue"></span></li>
-                                <li><span class="yellow"></span></li>
-                                <li><span class="red"></span></li>
-                            </ul>
-                        </div>
-                        <div class="productName shirtName">
-                            Men
-                        </div>
-                    </div>
-                </a>
-            </div>
+<head>
+    <link href="~/wwwroot/css/Index.css" rel="stylesheet" />
+</head>
+
+<div class="contenthover">
+    <div class="split left">
+        <img src="~/wwwroot/pic/MainPage/woman.png" alt="skateboard" class="skateboard">
+        <div class="text">
+            <p class="subtitle">Be on style</p>
+            <h1 class="title">mmm ahhh <br>...push it!</h1>
+            <p class="desc">for her</p>
+            <a href="~/Pages/Woman" class="button">WOMAN</a>
         </div>
     </div>
+    <div class="split right">
+        <img src="~/wwwroot/pic/MainPage/Men.png" alt="shoes" class="shoes">
+        <div class="text">
+            <p class="subtitle">for true gentlemen</p>
+            <h1 class="title">because <br>I'm happy! <br> again</h1>
+            <p class="desc">for him</p>
+            <a href="~/Pages/Men" class="button">MAN</a>
+        </div>
+    </div>
+</div>
 
